@@ -1,7 +1,14 @@
-<app-nav-bar></app-nav-bar> <!--Traigo mi nav-bar.html -->
+<app-nav-bar></app-nav-bar> 
 
-<!-- <p>Estoy en el componente Home!</p> -->
-<app-banner *ngFor="let barr of banner"
-[banner]="barr"
->
-</app-banner>
+
+<div *ngIf="loading"><!--si hay "loading" se va activar el gif -->
+    <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
+    <h3 style="text-align: center;">{{loading}} </h3>
+</div>
+
+<div *ngIf="!loading">
+    <app-banner *ngFor="let barr of banner"
+    [banner]="barr"
+    >
+</app-banner><!--Traigo mi app-banner.html -->
+</div>

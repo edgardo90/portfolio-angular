@@ -11,6 +11,7 @@ import {BannerService} from "../../service/banner.service"
 })
 export class HomeComponent implements OnInit {
   banner:Banner[]=[];
+  loading: string = "Cargando..." // esto me va servir para que aparezca el gif cargando... , si hay un string se va activar el gif caso contrarip el gif se va a descastivar
 
 
   constructor( private bannerService: BannerService) { }
@@ -22,8 +23,12 @@ export class HomeComponent implements OnInit {
       console.log(this.banner);
     }, err=>{
       console.log(err.error);
-    })
-    
+    });
+
+    setTimeout(() => this.loading= ""  ,8000 ); // cuando pase ese tiempo setea a un string vacio 
   }
+
+
+
 
 }
