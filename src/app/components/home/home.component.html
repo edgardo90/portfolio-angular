@@ -1,3 +1,7 @@
 <app-nav-bar></app-nav-bar> <!--Traigo mi nav-bar.html -->
 
-<p>Estoy en el componente Home!</p>
+<!-- <p>Estoy en el componente Home!</p> -->
+<app-banner *ngFor="let barr of banner"
+[banner]="barr"
+>
+</app-banner>
