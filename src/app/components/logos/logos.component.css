@@ -1,7 +1,13 @@
+.logos{
+    margin-left: 1000px;
+}
+
 .logoLinkedin{
-   margin-right: 35px;
+   margin-right: 30px;
    width: 40px;
-   margin-left: 120px;
+   margin-left: 50px;
+   /* position: absolute;  */
+  /* display: flex; */
 }
 
 .logoFacebook{
@@ -14,4 +20,78 @@
     margin-right: 20px;
     width: 40px;
     border-radius: 20px;
+}
+
+@media screen and (max-width: 1500px) {
+    .logos{
+        margin-left: 900px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .logos{
+        margin-left: 800px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .logos{
+        margin-left: 700px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .logos{
+        margin-left: 600px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .logos{
+        margin-left: 400px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .logos{
+        margin-left: 250px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .logos{
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .logos{
+        margin-left: -10px;
+        /* width: 10px; */
+    }
+    .logoLinkedin{
+        width: 30px;
+    }
+    .logoFacebook{
+        width: 30px;
+    }
+    .logoGit{
+        width: 30px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .logos{
+        margin-left: -20px;
+        /* width: 10px; */
+    }
+    .logoLinkedin{
+        width: 25px;
+    }
+    .logoFacebook{
+        width: 25px;
+    }
+    .logoGit{
+        width: 25px;
+    }
 }

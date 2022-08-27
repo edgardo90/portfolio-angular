@@ -1,0 +1,35 @@
+.imgBanner{
+    width: 950px;
+    display:block; /*centro la imagen  */
+    margin-left: auto; /*centro la imagen  */
+    margin-right: auto; /*centro la imagen  */
+    margin-top: 75px;
+}
+
+.div{
+    background-color: rgba(138, 197, 197, 0.897);
+}
+
+@media screen and (max-width: 1400px) {
+    .imgBanner {
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .imgBanner{
+        width:700px ;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .imgBanner{
+        width:500px ;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .imgBanner{
+        width:400px ;
+    }
+}
