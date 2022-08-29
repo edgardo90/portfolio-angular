@@ -14,7 +14,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cambio(){
+  cambio(){ // funcion que va recibir el evento al componente  "home.component"/html"
     // console.log(this.activate)
     this.onChange.emit(this.activate)
   }

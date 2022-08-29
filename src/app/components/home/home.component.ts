@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  cambio(){ //funcion para cambiar el estado de "cambio"
+  cambio(){ //funcion para cambiar el estado de la variable "activado"
     if(this.activado){
       this.activado = false
     }else{
