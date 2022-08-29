@@ -22,6 +22,8 @@
     border-radius: 20px;
 }
 
+
+/* configuarcion para que sea responsivo */
 @media screen and (max-width: 1500px) {
     .logos{
         margin-left: 900px;
@@ -54,7 +56,7 @@
 
 @media screen and (max-width: 900px) {
     .logos{
-        margin-left: 250px;
+        margin-left: 243px;
     }
 }
 

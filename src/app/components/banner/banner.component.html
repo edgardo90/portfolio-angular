@@ -1,5 +1,9 @@
-<!-- <p>banner works!</p> -->
-<div class="div">
+<div class="div" >
     <img src={{banner.imagenLink}} alt="imagen barrner" class="imgBanner">
+
+    <div *ngIf="activate"><!-- si hay activate se van a mostrar el button  -->
+        <button class="cssButton1"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
+        <button class="cssButton2">X</button>
+    </div>
+
 </div>
-<!-- <h1>hola</h1> -->
