@@ -6,8 +6,8 @@ import { Component, OnInit , Input , Output , EventEmitter} from '@angular/core'
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  @Input() activate : string = "" // recibo lo que viene del home.html/home.component , esto es gracias al @Input()
-  @Output() onChange : EventEmitter<string> =new EventEmitter() //  con esto  extraigo la funcion "cambio()" que cree hacia afuera para que lo maneje otro component;  esto la va recibir "home.component"/html"
+  @Input() activate!: boolean ; // recibo lo que viene del home.html/home.component , esto es gracias al @Input()
+  @Output() onChange : EventEmitter<boolean> =new EventEmitter() //  con esto  extraigo la funcion "cambio()" que cree hacia afuera para que lo maneje otro component;  esto la va recibir "home.component"/html"
 
   constructor() { }
 

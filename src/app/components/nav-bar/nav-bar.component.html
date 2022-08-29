@@ -27,8 +27,11 @@
             <li>
               <a class="nav-link" href="#">Crear Usuario </a>
             </li>
-            <li>
+            <li *ngIf="!activate">
               <a href="#" class="nav-link" (click)="cambio()" data-bs-dismiss="offcanvas" aria-label="Close">Modificar portfolio</a>
+            </li>
+            <li *ngIf="activate">
+              <a href="#" class="nav-link" (click)="cambio()" data-bs-dismiss="offcanvas" aria-label="Close">Dejar de modificar portfolio</a>
             </li>
             <li class="nav-item dropdown">
               <!-- <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

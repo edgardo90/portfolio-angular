@@ -10,7 +10,7 @@ import {Persona , PersonArray} from "../../interfaces/interface-persona"
 })
 export class PersonaComponent implements OnInit {
   @Input() person : Persona = PersonArray[0] // , de esta forma traigo con "input" lo que esta en "home.component"
-  @Input() activate : string = "" // recibo lo que viene del home.html/home.component
+  @Input() activate! : boolean; // recibo lo que viene del home.html/home.component
   @Output() onDeletedPerson : EventEmitter<Persona> = new EventEmitter(); // con esto  extraigo la funcion "onDelete()" que cree hacia afuera para que lo maneje ; "esto la va recibir "home.component"/html" " 
 
   constructor() { }

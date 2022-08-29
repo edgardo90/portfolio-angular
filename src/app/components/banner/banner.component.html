@@ -2,8 +2,10 @@
     <img src={{banner.imagenLink}} alt="imagen barrner" class="imgBanner">
 
     <div *ngIf="activate"><!-- si hay activate se van a mostrar el button  -->
-        <button class="cssButton1"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
-        <button class="cssButton2">X</button>
-    </div>
+        <a href="banner/edit/{{banner.id}}">
+            <button class="cssButton1"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
+        </a>
+            <button class="cssButton2" (click)="onDelete(banner)">X</button>
+        </div>
 
 </div>
