@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient , HttpHeaders} from "@angular/common/http"  // esto sirve para ser los get y post
-import { Observable ,of} from "rxjs" // libreria que nos permite controlar el async , "observable"
+import { Observable } from "rxjs" // libreria que nos permite controlar el async , "observable"
 import {Persona} from "../interfaces/interface-persona" // este el interface de Persona que cree
 
 const httpOption = { // esto es para decir que envio un json a la aplicacion , "sin esto lo probe y me funcion AH TENER EN CUENTA"
@@ -22,5 +22,9 @@ export class PersonaService {
     return this.http.get<Persona[]>(`${this.urlPersona}/all`)
   }
 
+  deletedPerson(person:Persona):Observable<Persona>{ // funcion para eleminar la persona
+    const urlPerosnaDeleted = `${this.urlPersona}/deleted/${person.id}`;
+    return this.http.delete<Persona>(urlPerosnaDeleted)
+  }
 
 }

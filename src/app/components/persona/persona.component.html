@@ -1,0 +1,18 @@
+<div>
+    <img class="imagenPersona" src={{person.imagen}} alt="foto perfil">
+    <br>
+    <!-- <br> -->
+
+    <div class="divButton1" *ngIf="activate"><!-- si hay activate se van a mostrar los botones  -->
+        <button class="cssButton1"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
+        <button class="cssButton2" (click)="onDelete(person)">X</button> <!--con (clic) le paso funcion que cree en este componente  -->
+    </div>
+
+    <div class="divPersona">
+        <h2 >{{person.name}} {{person.surname}} </h2>
+        <p >Celular: {{person.phone}}  </p>
+        <p  >Email: {{person.email}} </p>
+        <p  >Pais de nacionalidad: {{person.country}} </p>
+    </div>
+</div>
+    

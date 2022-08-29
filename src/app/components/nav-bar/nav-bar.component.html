@@ -14,7 +14,7 @@
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">App portafolio</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button><!-- cierra el menu  -->
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -26,6 +26,9 @@
             </li>
             <li>
               <a class="nav-link" href="#">Crear Usuario </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link" (click)="cambio()" data-bs-dismiss="offcanvas" aria-label="Close">Modificar portfolio</a>
             </li>
             <li class="nav-item dropdown">
               <!-- <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

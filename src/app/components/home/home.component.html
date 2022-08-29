@@ -1,4 +1,8 @@
-<app-nav-bar></app-nav-bar> 
+<app-nav-bar
+[activate]="activado"
+(onChange)="cambio()"
+>
+</app-nav-bar> 
 
 
 <div *ngIf="loading"><!--si hay "loading" se va activar el gif -->
@@ -9,6 +13,17 @@
 <div *ngIf="!loading">
     <app-banner *ngFor="let barr of banner"
     [banner]="barr"
+    [activate]="activado"
     >
 </app-banner><!--Traigo mi app-banner.html -->
+</div>
+
+<div *ngIf="!loading"> <!-- mando la variable "activado" a la variable "activate" del persona.component -->
+    <app-persona *ngFor="let per of persona"
+    [person]="per"
+    [activate]="activado"
+    (onDeletedPerson)="deletedPersonakFront(per)" 
+    >
+    <!-- (onDeletedPerson) es el Output() del persona.component , le paso la funcion "deletedPersonakBack(per)"  que cree en este componente  -->
+    </app-persona><!--Traigo mi persona.html -->
 </div>

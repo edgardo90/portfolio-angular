@@ -1,15 +1,21 @@
-.imgBanner{
-    width: 950px;
-    display:block; /*centro la imagen  */
-    margin-left: auto; /*centro la imagen  */
-    margin-right: auto; /*centro la imagen  */
-    margin-top: 75px;
+
+
+.imagenPersona{
+    width: 300px;
+    height: 300px;
+    border-radius: 9999px;
+    margin-left: 30px;
+    margin-top: -30px;
 }
 
-.div{
-    background-color: rgba(138, 197, 197, 0.897);
+.divPersona{
+    margin-left: 50px;
 }
 
+.divButton1{
+    margin-left: 330px;
+    margin-bottom: -35px;
+}
 
 .lapizCss{
     width: 30px;
@@ -22,13 +28,9 @@
 }
 
 .cssButton1{
-    position: absolute; 
-    right: 0;
-    margin-top: -30px;
-    margin-right: 40px;
     border: none;
     border-radius: 9px;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgb(255, 255, 255);
     cursor: pointer;
 }
 .cssButton1:active{
@@ -38,10 +40,8 @@
 
 .cssButton2{
     position: absolute; 
-    right: 0;
-    /* margin-left: 10px; */
-    margin-top: -31px;
-    /* margin-right: 40px; */
+    margin-left: 10px;
+    /* margin-top: -50px; */
     border: none;
     color: white;
     cursor: pointer;
@@ -68,7 +68,6 @@
 
 
 
-
 @media screen and (max-width: 1400px) {
     .imgBanner {
         width: 800px;
@@ -76,25 +75,47 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .imgBanner{
-        width:700px ;
+    .imagenPersona{
+        /* margin-left: 350px; */
+        width: 200px;
+        height: 200px;
     }
 }
 
 @media screen and (max-width: 700px) {
-    .imgBanner{
-        width:500px ;
+    .imagenPersona{
+        /* width:200px ; */
+        margin-left: 50px;
+        width: 150px;
+        height: 150px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .imgBanner{
-        width:400px ;
+    .imagenPersona{
+        /* width:400px ; */
+        width: 150px;
+        height: 150px;
+    }
+    .divPersona{
+        margin-left: 20px;
+    }
+    .divButton1{
+        margin-left: 290px;
+        margin-bottom: -35px;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .imgBanner{
-        width:300px
+    .imagenPersona{
+        width: 150px;
+        height: 150px;
+    }
+    .divPersona{
+        margin-left: 20px;
+    }
+    .divButton1{
+        margin-left: 290px;
+        margin-bottom: -35px;
     }
 }
