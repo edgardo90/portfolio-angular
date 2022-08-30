@@ -10,6 +10,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LogosComponent } from './components/logos/logos.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { PersonaComponent } from './components/persona/persona.component';
+import { CreateBannerComponent } from './components/create-banner/create-banner.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PersonaComponent } from './components/persona/persona.component';
     NavBarComponent,
     LogosComponent,
     BannerComponent,
-    PersonaComponent
+    PersonaComponent,
+    CreateBannerComponent
   ],
   imports: [
     BrowserModule,

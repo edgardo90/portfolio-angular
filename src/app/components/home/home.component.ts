@@ -14,8 +14,8 @@ import {PersonaService} from "../../service/persona.service";
 export class HomeComponent implements OnInit {
   banner:Banner[]=[];
   persona:Persona[] = [];
-  loading: string = "" // esto me va servir para que aparezca el gif cargando... , si hay un string se va activar el gif caso contrarip el gif se va a descastivar
-  activado: string = "" // esto es un ejemplo de que mando el value de esta varible a persona.component
+  loading: string = "Cargando..." // esto me va servir para que aparezca el gif cargando... , si hay un string se va activar el gif caso contrarip el gif se va a descastivar
+  activado: boolean = false // esto es un ejemplo de que mando el value de esta varible a persona.component y a otros componentes para mostrar los botones de editar y eleminar
 
   constructor( private bannerService: BannerService , private personaService:PersonaService ) { }
 
@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     }, err=>{
       console.log(err.error);
     });
+
     this.personaService.getAllPersons().subscribe(value =>{ // llamo el service para traer todas las personas
       this.persona = value;
       this.persona = this.persona.filter(el => el.userName === "bade86")
@@ -51,11 +52,25 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  cambio(){ //funcion para cambiar el estado de "cambio"
+  deletedBannerFront(bann: Banner){ // funcion para eleminar el banner
+    const option = window.confirm("Estas seguro de eleminar  ?"); // una alerta que si es "si" option va ser true sino va ser false
+    if(option){
+      this.bannerService.deletedBanner(bann).subscribe(() => {
+        this.banner = this.banner.filter(el => el.id !== bann.id);
+      },err =>{
+        console.log(err.error)
+      });
+      alert("eleminado con exito")
+    }
+  }
+
+
+
+  cambio(){ //funcion para cambiar el estado de la variable "activado"
     if(this.activado){
-      this.activado = ""
+      this.activado = false
     }else{
-      this.activado="si"
+      this.activado= true
     }
     console.log(this.activado)
   }

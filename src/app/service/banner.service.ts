@@ -17,12 +17,27 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 })
 export class BannerService {
 
-  private urlBanner ="http://localhost:8080/banner/" // la ruta del back local del banner
+  private urlBanner ="http://localhost:8080/banner" // la ruta del back local del banner
 
   constructor(private http:HttpClient) { }
 
-  getAllBanners():Observable<Banner[]>{
-    return this.http.get<Banner[]>(`${this.urlBanner}all`)
+  getAllBanners():Observable<Banner[]>{ // get para traer los banners
+    return this.http.get<Banner[]>(`${this.urlBanner}/all`)
+  }
+
+  deletedBanner(banner:Banner):Observable<Banner>{ // funcion para eleminar el banner
+    const urlPerosnaDeleted = `${this.urlBanner}/deleted/${banner.id}`;
+    return this.http.delete<Banner>(urlPerosnaDeleted);
+  }
+
+  getBarrnerByid(id:string):Observable<Banner>{ // get para traer un banner por su id
+    const urlBannerById = `${this.urlBanner}/${id}` ;
+    return this.http.get<Banner>(urlBannerById);
+  }
+
+  putBanner(banner:Banner):Observable<Banner>{ //funcion para modificar el banner
+    const urlBannerById = `${this.urlBanner}/edit/${banner.id}`
+    return this.http.put<Banner>(urlBannerById, banner , httpOption);
   }
 
 }
