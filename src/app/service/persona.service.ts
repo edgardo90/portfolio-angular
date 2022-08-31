@@ -27,4 +27,14 @@ export class PersonaService {
     return this.http.delete<Persona>(urlPerosnaDeleted)
   }
 
+  getPersonaByid(id:string):Observable<Persona>{ // get para traer una persona por su id
+    const urlPersonaById = `${this.urlPersona}/${id}` ;
+    return this.http.get<Persona>(urlPersonaById);
+  }
+
+  putPersona(person:Persona):Observable<Persona>{ //funcion para modificar la persona
+    const urlBannerById = `${this.urlPersona}/edit/${person.id}`
+    return this.http.put<Persona>(urlBannerById, person , httpOption);
+  }
+
 }
