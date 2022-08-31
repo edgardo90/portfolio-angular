@@ -27,10 +27,10 @@
             <li>
               <a class="nav-link" href="#">Crear Usuario </a>
             </li>
-            <li *ngIf="!activate">
+            <li *ngIf="!activate && !id"> <!-- se va mostrar si no hay activate y no hay id  -->
               <a href="#" class="nav-link" (click)="cambio()" data-bs-dismiss="offcanvas" aria-label="Close">Modificar portfolio</a>
             </li>
-            <li *ngIf="activate">
+            <li *ngIf="activate"><!--  -->
               <a href="#" class="nav-link" (click)="cambio()" data-bs-dismiss="offcanvas" aria-label="Close">Dejar de modificar portfolio</a>
             </li>
             <li class="nav-item dropdown">
