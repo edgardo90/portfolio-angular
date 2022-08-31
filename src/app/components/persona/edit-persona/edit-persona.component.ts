@@ -108,7 +108,7 @@ export class EditPersonaComponent implements OnInit {
 
   }
 
-  resetImagen(){
+  resetImagen(){ // funcion que voy a utilizar para un button para borrar lo que esta en el input
     this.imagen=""
   }
 

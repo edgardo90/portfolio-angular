@@ -4,4 +4,8 @@ export interface Banner{
     userName: string,
 }
 
-export const BARRNERarr : Banner[] = [] // esto sirve para hacerlo con task2.ts y task.item , aca digo que "TASKSarr" sea la interface que cree "Task" de tipo array
+export interface Errores{
+    imagenLink?:string,
+}
+
+export const BARRNERarr : Banner[] = [] // esto sirve para hacerlo con  banner.component , aca digo que "BARRNERarr" sea la interface que cree "Banner" de tipo array

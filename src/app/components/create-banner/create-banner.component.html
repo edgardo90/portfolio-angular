@@ -1,6 +1,7 @@
 <app-nav-bar></app-nav-bar> 
 
 <!-- modifico el banner -->
+{{chekErros()}}
 <body style="background-color: rgb(143, 147, 195);">
     
     <section class="vh-100 gradient-custom">
@@ -24,11 +25,14 @@
                             name="imagenLink" 
                             class="form-control form-control-lg"
                             style="font-size: 15px; "
-                            placeholder="html:"
+                            placeholder="https://"
                             [(ngModel)]="imagenLink"
                             />
+                            <div style="margin-top: -32px; margin-left: 101%;">
+                                <button class="cssButton2" (click)="resetImagen()" type="button" >X</button><!--va ser un button para borra lo que hay en este input  -->
+                            </div>
                             <label class="form-label" for="imagenLink" >Ingrese link de la imagen</label>
-                            <!-- <p style="color: red ; font-size: 13px;"> {{imagenLink ? '' : 'ingrese el limk de la imagen'}} </p>  -->
+                            <p style="color: red ; font-size: 14px;"> {{errores.imagenLink}} </p> 
                         </div>
                         
                         <!-- <div class="form-outline form-white mb-4">

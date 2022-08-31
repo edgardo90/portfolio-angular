@@ -1,5 +1,6 @@
 .imgBanner{
-    width: 950px;
+    width: 1200px;
+    height: 590px;
     display:block; /*centro la imagen  */
     margin-left: auto; /*centro la imagen  */
     margin-right: auto; /*centro la imagen  */
@@ -71,13 +72,14 @@
 
 @media screen and (max-width: 1400px) {
     .imgBanner {
-        width: 800px;
+        width: 1000px;
+        height: auto;
     }
 }
 
 @media screen and (max-width: 1000px) {
     .imgBanner{
-        width:700px ;
+        width:650px ;
     }
 }
 
