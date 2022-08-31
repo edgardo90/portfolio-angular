@@ -11,6 +11,7 @@ import { LogosComponent } from './components/logos/logos.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { PersonaComponent } from './components/persona/persona.component';
 import { CreateBannerComponent } from './components/create-banner/create-banner.component';
+import { EditPersonaComponent } from './components/persona/edit-persona/edit-persona.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateBannerComponent } from './components/create-banner/create-banner.
     LogosComponent,
     BannerComponent,
     PersonaComponent,
-    CreateBannerComponent
+    CreateBannerComponent,
+    EditPersonaComponent
   ],
   imports: [
     BrowserModule,
