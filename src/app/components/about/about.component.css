@@ -1,0 +1,182 @@
+.cssTask{
+    background-color: rgb(184, 180, 180);
+    margin: 10px;
+    padding: 10px 20px;
+    /* cursor: pointer; */
+}
+
+.container{
+    max-width: 940px;
+    overflow: auto;
+    min-height: 100px;
+    border: 1px solid steelblue;
+    border-radius: 15px;
+    margin-left: 500px;
+    margin-top: -170px;
+    box-shadow: 2px 2px 4px 2px rgb(93, 92, 92);
+    /* margin-bottom: 20px; */
+}
+.container:hover{
+    background-color: rgba(138, 197, 197, 0.897);
+    color: white;
+}
+
+.divButton1{
+    margin-left: 330px;
+    /* margin-bottom: -31px; */
+    /* margin-top: -50px; */
+}
+
+.lapizCss{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: rgba(175, 198, 241, 0.838);
+}
+.lapizCss:hover{
+    background-color:rgba(77, 94, 191, 0.649) ;
+}
+
+.cssButton1{
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: -100px;
+    border: none;
+    border-radius: 9px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 0px;
+    /* padding-top: 0px; */
+}
+.cssButton1:active{
+    transform: scale(0.8);
+}
+
+.cssButton2{
+    position: absolute; 
+    margin-left: 70px;
+    margin-top: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: none;
+  background-color: rgba(234, 91, 91, 0.944);
+  border-radius: 9999px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 20px;
+}
+.cssButton2:active { /* cuando se toque va hacer una animacion de click  */
+    transform: scale(0.8); 
+}
+.cssButton2:hover{
+    background-color: red;
+    color: white;
+}
+
+@media screen and (max-width: 1500px) {
+    .container {
+        max-width: 880px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .container {
+        max-width: 770px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .container{
+        max-width: 700px;
+        margin-left: 490px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .container{
+        margin-left: 450px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container{
+        max-width: 650px ;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .container{
+        margin-top: 30px;
+        margin-left: 30px;
+        max-width: 900px;
+    }
+}
+
+/* @media screen and (max-width: 1100px) {
+    .container{
+    }
+} */
+
+@media screen and (max-width: 1000px) {
+    .container{
+        /* margin-top: 30px; */
+        /* margin-left: 30px; */
+        max-width: 800px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .container{
+        /* margin-top: 30px; */
+        /* margin-left: 30px; */
+        max-width: 700px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container{
+        /* margin-top: 30px; */
+        /* margin-left: 30px; */
+        max-width: 630px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container{
+        /* margin-top: 30px; */
+        /* margin-left: 30px; */
+        max-width: 450px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        /* margin-top: 30px; */
+        margin-left: 10px;
+        max-width: 395px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container{
+        /* margin-top: 30px; */
+        margin-left: 10px;
+        max-width: 370px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container{
+        /* margin-top: 30px; */
+        /* margin-left: 10px; */
+        max-width: 350px;
+    }
+}
+
+

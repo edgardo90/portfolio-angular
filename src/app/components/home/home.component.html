@@ -30,3 +30,12 @@
 <h2 style="  margin-top: 100px;" *ngIf="persona.length === 0">"No Hay datos de la persona para mostrar" </h2>
 </div>
 
+<div *ngIf="!loading">
+    <app-about *ngFor="let ab of about"
+    [about]="ab"
+    [activate]="activado"
+    (onDeletedAbout)="deletedAboutFront(ab)"
+    >
+    </app-about>
+</div>
+
