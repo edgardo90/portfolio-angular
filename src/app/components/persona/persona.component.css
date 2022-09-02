@@ -5,7 +5,7 @@
     height: 300px;
     border-radius: 9999px;
     margin-left: 30px;
-    margin-top: -30px;
+    margin-top: -150px;
 }
 
 .divPersona{
@@ -77,6 +77,7 @@
 @media screen and (max-width: 1000px) {
     .imagenPersona{
         /* margin-left: 350px; */
+        margin-top: -100px;
         width: 200px;
         height: 200px;
     }
@@ -85,6 +86,7 @@
 @media screen and (max-width: 700px) {
     .imagenPersona{
         /* width:200px ; */
+        margin-top: -70px;
         margin-left: 50px;
         width: 150px;
         height: 150px;
@@ -94,6 +96,7 @@
 @media screen and (max-width: 500px) {
     .imagenPersona{
         /* width:400px ; */
+        margin-top: -40px;
         width: 150px;
         height: 150px;
     }

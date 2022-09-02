@@ -1,0 +1,67 @@
+<app-nav-bar></app-nav-bar> 
+
+<!-- modifico el about -->
+{{checkErrors()}}
+<br>
+<br>
+<body style="background-color: rgb(143, 147, 195); padding-bottom: 100px;">
+    
+    <section class="vh-100 gradient-custom" style="margin-bottom: 100px;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card  text-white" style="border-radius: 1rem; background-color: rgb(95, 93, 93)">
+            <div class="card-body p-5 text-center">
+                
+                <div class="mb-md-5 mt-md-4 pb-5">
+                    
+                    <h2 class="fw-bold mb-2 " >Editar acerca de ti</h2>
+                    <!-- <p class="text-white-50 mb-5">Por favor, ingresar usuario y clave</p> -->
+                    <br>
+                    <br>
+                    <form (ngSubmit)="modifyAbout()"  >
+                        <div class="form-outline form-white mb-4">
+                            <input 
+                            type="text" 
+                            id="title"
+                            name="title" 
+                            class="form-control form-control-lg"
+                            style="font-size: 15px; "
+                            placeholder="titulo:"
+                            [(ngModel)]="title"
+                            />
+                            <label class="form-label" for="imagenLink" >titulo</label>
+                            <p style="color: rgb(255, 0, 0) ; font-size: 15px;"> {{errores.title}} </p> 
+                        </div>
+                        
+                        <div class="form-outline form-white mb-4">
+                            <textarea
+                            id="summary" 
+                            name="summary"
+                            style="width: 350px; height: 300px;"
+                            [(ngModel)]="summary"
+                            >
+                            </textarea>
+                            <br>
+                            <label class="form-label" for="imagenLink" >Resumen sobre ti</label>
+                            <p style="color: red ; font-size: 14px;"> {{errores.summary}} </p> 
+                        </div>
+                        
+                        
+                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Enviar</button>
+                    </form>
+                </div>
+            
+            <div>
+                <!-- <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+                </p> -->
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+</body>
+
