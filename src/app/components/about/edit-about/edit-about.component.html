@@ -4,9 +4,9 @@
 {{checkErrors()}}
 <br>
 <br>
-<body style="background-color: rgb(143, 147, 195); padding-bottom: 100px;">
+<body class="gradient-custom" >
     
-    <section class="vh-100 gradient-custom" style="margin-bottom: 100px;">
+    <section class="" >
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -30,7 +30,7 @@
                             placeholder="titulo:"
                             [(ngModel)]="title"
                             />
-                            <label class="form-label" for="imagenLink" >titulo</label>
+                            <label class="form-label" for="imagenLink" >Titulo</label>
                             <p style="color: rgb(255, 0, 0) ; font-size: 15px;"> {{errores.title}} </p> 
                         </div>
                         
@@ -38,7 +38,8 @@
                             <textarea
                             id="summary" 
                             name="summary"
-                            style="width: 350px; height: 300px;"
+                            class="form-control form-control-lg"
+                            style="height: 300px;"
                             [(ngModel)]="summary"
                             >
                             </textarea>
