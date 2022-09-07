@@ -23,7 +23,7 @@ export class AboutService {
     return this.http.get<About[]>(`${this.urlAbout}/all`);
   }
 
-  deletedPerson(person:About):Observable<About>{ // funcion para eleminar el About
+  deletedAbout(person:About):Observable<About>{ // funcion para eleminar el About
     const urlPerosnaDeleted = `${this.urlAbout}/deleted/${person.id}`;
     return this.http.delete<About>(urlPerosnaDeleted)
   }

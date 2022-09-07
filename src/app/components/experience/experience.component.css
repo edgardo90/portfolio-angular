@@ -1,0 +1,77 @@
+.container{
+    max-width: 85%;
+    overflow: auto;
+    min-height: 100px;
+    border: 1px solid steelblue;
+    border-radius: 15px;
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 4px 2px rgb(93, 92, 92);
+    /* margin-bottom: 20px; */
+}
+.container:hover{
+    background-color: rgba(121, 162, 162, 0.897);
+    color: white;
+}
+
+.logoImagen{
+    /* position: absolute; */
+    width: 90px ;
+    margin-bottom: -160px;
+    margin-left: -5px;
+    /* margin-right: 100px; */
+}
+
+
+.lapizCss{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: rgba(175, 198, 241, 0.838);
+}
+.lapizCss:hover{
+    background-color:rgba(77, 94, 191, 0.649) ;
+}
+
+.cssButton1{
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: -100px;
+    border: none;
+    border-radius: 9px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 0px;
+    /* padding-top: 0px; */
+}
+.cssButton1:active{
+    transform: scale(0.8);
+}
+
+
+.cssButton2{
+    position: absolute; 
+    margin-left: 70px;
+    margin-top: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: none;
+  background-color: rgba(234, 91, 91, 0.944);
+  border-radius: 9999px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* padding-top: 4px; */
+  /* padding-bottom: 4px; */
+  font-size: 20px;
+}
+.cssButton2:active { /* cuando se toque va hacer una animacion de click  */
+    transform: scale(0.8); 
+}
+.cssButton2:hover{
+    background-color: red;
+    color: white;
+}
