@@ -25,24 +25,24 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.bannerService.getAllBanners().subscribe(value =>{ // llamo el service para traer todas los banners
       this.banner = value;
-      this.banner = this.banner.filter(el => el.userName === "bade86") // va traer solamente el el.userName = "edgardo90"
-      console.log(this.banner);
+      this.banner = this.banner.filter(el => el.userName === "edgardo90") // va traer solamente el el.userName = "edgardo90"
+      // console.log(this.banner);
     }, err=>{
       console.log(err.error);
     });
 
     this.personaService.getAllPersons().subscribe(value =>{ // llamo el service para traer todas las personas
       this.persona = value;
-      this.persona = this.persona.filter(el => el.userName === "bade86");
-      console.log(this.persona);
+      this.persona = this.persona.filter(el => el.userName === "edgardo90");
+      // console.log(this.persona);
     } , err=>{
       console.log(err.error);
     });
 
     this.aboutService.getAllAbout().subscribe(value =>{ // traigo todos los about
       this.about=value;
-      this.about = this.about.filter(el => el.userName === "bade86");
-      console.log(this.about);
+      this.about = this.about.filter(el => el.userName === "edgardo90");
+      // console.log(this.about);
     }, err=>{
       console.log(err.error);
     });
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
   deletedAboutFront(about: About){ // funcion para eleminar el About
     const option = window.confirm("Estas seguro de eleminar  ?"); // una alerta que si es "si" option va ser true sino va ser false
     if(option){
-      this.aboutService.deletedPerson(about).subscribe(() => {
+      this.aboutService.deletedAbout(about).subscribe(() => {
         this.about = this.about.filter(el => el.id !== about.id);
       },err =>{
         console.log(err.error)

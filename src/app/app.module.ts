@@ -14,6 +14,8 @@ import { CreateBannerComponent } from './components/create-banner/create-banner.
 import { EditPersonaComponent } from './components/persona/edit-persona/edit-persona.component';
 import { AboutComponent } from './components/about/about.component';
 import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { CreateExperienceComponent } from './components/experience/create-experience/create-experience.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { EditAboutComponent } from './components/about/edit-about/edit-about.com
     CreateBannerComponent,
     EditPersonaComponent,
     AboutComponent,
-    EditAboutComponent
+    EditAboutComponent,
+    ExperienceComponent,
+    CreateExperienceComponent
   ],
   imports: [
     BrowserModule,
