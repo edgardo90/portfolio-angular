@@ -1,12 +1,21 @@
+<body class="gradient-custom" style="padding: 1px ; padding-bottom: 164px;" >
 <app-nav-bar></app-nav-bar> 
+
+<!--si hay "loading" se va activar el gif -->
+<div *ngIf="loading">
+    <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
+    <h3 style="text-align: center;">{{loading}} </h3>
+</div> 
 
 <!-- modifico el about -->
 {{checkErrors()}}
 <br>
 <br>
-<body class="gradient-custom" >
     
-    <section class="" >
+
+
+    <!--si se cumple el *ngIf="!loading"  va mostrar todo lo que hay en <section>   -->
+    <section class=""  *ngIf="!loading" style="margin-top: 80px ;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">

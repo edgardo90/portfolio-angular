@@ -11,3 +11,15 @@
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgb(143, 167, 208));
     /* padding-bottom: 1500px; */
     }
+
+    .imgLoading{
+        margin-top: 198px;
+        display:block; /*centro la imagen  */
+        margin-left: auto; /*centro la imagen  */
+        margin-right: auto; /*centro la imagen  */
+        cursor: progress; /*muestra la flechita del mouese que esta cargando  */
+        /* height: 40vh ; */
+        width: 400px;
+        height: 296px;
+        border-radius: 20px;
+    }

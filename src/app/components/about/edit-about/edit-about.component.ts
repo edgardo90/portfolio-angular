@@ -11,6 +11,8 @@ import {About ,Errores} from "../../../interfaces/interface-about"
 })
 export class EditAboutComponent implements OnInit {
 
+  loading: string = "Cargando..."
+
   about!:About;
 
   title:string="";
@@ -22,6 +24,8 @@ export class EditAboutComponent implements OnInit {
   constructor(private router: Router, private activatedRouter : ActivatedRoute, private aboutService: AboutService) { }
 
   ngOnInit(): void {
+    setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
+
     const id = this.activatedRouter.snapshot.params["id"];
     // console.log(id);
 
