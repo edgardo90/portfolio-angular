@@ -20,7 +20,22 @@ export class ExperienceComponent implements OnInit {
   ngOnInit(): void {
     this.experienceService.getAllExperience().subscribe(value=>{ // voy a traer todas las experiencias
       this.exper = value;
-      this.exper = this.exper.filter(el => el.userName === "edgardo90");
+      this.exper = this.exper.filter(el => el.userName === "edgardo90"); // traigo las experiencias solamente de "edgardo90"
+      this.exper = this.exper.sort(function(a,b){ // ordeno las experiencias por su fecha
+        if(new Date(a.dateStart) > new Date(b.dateStart) ){
+          return -1
+        }
+        if(new Date(a.dateStart) < new Date(b.dateStart) ){
+          return 1
+        }
+        return 0
+      });
+      this.exper = this.exper.map(el =>{ // hago un map para cambiar el orden que se va ver las fechas
+        el.dateStart = el.dateStart.split("-").reverse().join("/"); 
+        el.dateEnd = el.dateEnd.split("-").reverse().join("/");
+        console.log(new Date(el.dateStart))
+        return el;
+      });
       // console.log(this.exper)
     } , err=>{
       console.log(err.error);

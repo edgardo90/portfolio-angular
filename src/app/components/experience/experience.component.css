@@ -1,7 +1,7 @@
 .container{
     max-width: 85%;
     overflow: auto;
-    min-height: 100px;
+    min-height: 175px;
     border: 1px solid steelblue;
     border-radius: 15px;
     margin-left: 40px;
@@ -18,10 +18,30 @@
 .logoImagen{
     /* position: absolute; */
     width: 90px ;
-    margin-bottom: -160px;
+    margin-bottom: -100px;
     margin-left: -5px;
     /* margin-right: 100px; */
+    background-color: white;
 }
+
+.buttonAgregar{
+    padding: 8px; 
+    font-size: 18px ; 
+    margin-left: 10px ;
+    position: absolute; 
+    /* margin-top: 8px;  */
+    margin-top: 0.6%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(49, 174, 116, 0.893);
+    color: white;
+}
+.buttonAgregar:hover{
+    background-color: rgb(27, 166, 101);
+}
+/* .buttonAgregar:active{
+    transform: scale(0.8);
+} */
 
 
 .lapizCss{
@@ -38,7 +58,7 @@
 .cssButton1{
     position: absolute;
     margin-left: 25px;
-    margin-top: 10px;
+    margin-top: 8px;
     margin-bottom: -100px;
     border: none;
     border-radius: 9px;

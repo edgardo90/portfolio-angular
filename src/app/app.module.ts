@@ -16,6 +16,7 @@ import { AboutComponent } from './components/about/about.component';
 import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { CreateExperienceComponent } from './components/experience/create-experience/create-experience.component';
+import { EditExperienceComponent } from './components/experience/edit-experience/edit-experience.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CreateExperienceComponent } from './components/experience/create-experi
     AboutComponent,
     EditAboutComponent,
     ExperienceComponent,
-    CreateExperienceComponent
+    CreateExperienceComponent,
+    EditExperienceComponent
   ],
   imports: [
     BrowserModule,

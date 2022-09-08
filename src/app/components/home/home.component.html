@@ -15,8 +15,8 @@
     [activate]="activado"
     (onDeletedBanner)="deletedBannerFront(barr)"
     >
-    </app-banner><!--Traigo mi app-banner.html -->
-    <h1 style="text-align: center ; font-size: 50px; margin-top: 100px;" *ngIf="banner.length === 0"> {{banner.length ===0 ? "No Hay banner para mostrar" : ""}}</h1>
+</app-banner><!--Traigo mi app-banner.html -->
+<h1 style="text-align: center ; font-size: 50px; margin-top: 100px;" *ngIf="banner.length === 0"> {{banner.length ===0 ? "No Hay banner para mostrar" : ""}}</h1>
 </div>
 
 <div *ngIf="!loading"> <!-- mando la variable "activado" a la variable "activate" del persona.component -->
@@ -30,6 +30,7 @@
 <h2 style="  margin-top: 100px;" *ngIf="persona.length === 0">"No Hay datos de la persona para mostrar" </h2>
 </div>
 
+
 <div *ngIf="!loading">
     <app-about *ngFor="let ab of about"
     [about]="ab"
@@ -42,7 +43,7 @@
 <br>
 <br>
 
-<div >
+<div *ngIf="!loading" >
     <app-experience
     [activate]="activado"
      >
