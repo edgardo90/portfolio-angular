@@ -33,7 +33,7 @@ export class ExperienceComponent implements OnInit {
       this.exper = this.exper.map(el =>{ // hago un map para cambiar el orden que se va ver las fechas
         el.dateStart = el.dateStart.split("-").reverse().join("/"); 
         el.dateEnd = el.dateEnd.split("-").reverse().join("/");
-        console.log(new Date(el.dateStart))
+        // console.log(new Date(el.dateStart))
         return el;
       });
       // console.log(this.exper)

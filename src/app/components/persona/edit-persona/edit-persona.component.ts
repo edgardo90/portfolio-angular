@@ -10,6 +10,9 @@ import {PersonaService} from "../../../service/persona.service"
   styleUrls: ['./edit-persona.component.css']
 })
 export class EditPersonaComponent implements OnInit {
+
+  loading: string = "Cargando...";
+
   person!:Persona;
 
   name:string = "" ;
@@ -30,6 +33,8 @@ export class EditPersonaComponent implements OnInit {
 
 
   ngOnInit(): void {
+    setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio 
+
     const id = this.activatedRouter.snapshot.params["id"]
     // console.log(id)
 
@@ -57,6 +62,7 @@ export class EditPersonaComponent implements OnInit {
     const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     const regexPhone = /[0-9]+$/i; ;
     const regexImagen = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/ ;
+    const regex = /[A-Z0-9._%+-]+/i; // valida letras , numeros , simbolos , valida si no hay nada en el input
     if(!this.name){
       this.errores.name = "tienes que ingresa un nombre";
     }else if(!regexString.test(this.name) || this.name.split("").includes(" ")  ){
@@ -99,7 +105,7 @@ export class EditPersonaComponent implements OnInit {
 
     if(!this.country){
       this.errores.country= "tienes que ingresar un pais";
-    }else if(!regexString.test(this.country)){
+    }else if(!regex.test(this.country)){
       this.errores.country = "solo tiene que ser letras";
     }else{
       this.errores.country= ""

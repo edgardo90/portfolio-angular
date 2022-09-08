@@ -1,3 +1,15 @@
+.imgLoading{
+  margin-top: 198px;
+  display:block; /*centro la imagen  */
+  margin-left: auto; /*centro la imagen  */
+  margin-right: auto; /*centro la imagen  */
+  cursor: progress; /*muestra la flechita del mouese que esta cargando  */
+  /* height: 40vh ; */
+  width: 400px;
+  height: 296px;
+  border-radius: 20px;
+}
+
 .cssButton2{
     /* margin-top: -50px; */
   border: none;

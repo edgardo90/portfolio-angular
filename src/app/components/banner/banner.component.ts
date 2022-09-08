@@ -15,11 +15,11 @@ export class BannerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.banner)
+    // console.log(this.banner)
   }
 
   onDelete(bann: Banner){ 
-    console.log(bann) //
+    // console.log(bann) //
     this.onDeletedBanner.emit(bann) 
   }
 
