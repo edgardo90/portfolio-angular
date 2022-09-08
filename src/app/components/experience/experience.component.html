@@ -1,13 +1,18 @@
 <div style="margin-top: 70px;">
-    <h1 style="margin-left: 40px;">Experiencia</h1>
+    <h1 style="margin-left: 40px;">Experiencia
+        <a routerLink="/experience/create" *ngIf="activate" >
+            <button class="buttonAgregar">Agregar experiencia</button>
+        </a>
+    </h1>
+    <!-- <button style="position: absolute ;margin-left: 300px ; margin-top: -40px;">Nueva experiencia</button> -->
     <br>
     <div  *ngFor="let ex of exper" class="container">
-        <img src={{ex.logoCompany}} alt="logoEmpresa" class="logoImagen">
+        <img src={{ex.logoCompany}} alt="" class="logoImagen">
         <h2 style="margin-left: 105px;">{{ex.title}}</h2>
-        <h3 style="margin-left: 105px; font-size: 20px;">{{ex.companyName}},    {{ex.dateStart}} - {{ex.dateEnd}} .</h3>
+        <h3 style="margin-left: 105px; font-size: 20px;">{{ex.companyName}},    {{ex.dateStart}} - {{ex.dateEnd ? ex.dateEnd : "actualmente"}} .</h3>
 
-        <div style="margin-top: 50px ; margin-left: -20px;" >
-            <a href="">
+        <div style="margin-top: 35px ; margin-left: -20px;" >
+            <a routerLink="/experience/edit/{{ex.id}}">
                 <button class="cssButton1" *ngIf="activate"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
             </a>
             <button class="cssButton2" type="button" *ngIf="activate" (click)="deletedExperience(ex)" >X</button>
@@ -15,5 +20,6 @@
         <br>
 
         <p style="margin-left: 105px; margin-top: -50px;" >{{ex.description}}</p>
+        <!-- <br> -->
     </div>
 </div>

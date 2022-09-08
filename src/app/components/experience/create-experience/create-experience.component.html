@@ -1,14 +1,15 @@
-<!-- <p>create-experience works!</p> -->
-
+<body class="gradient-custom" style="padding: 1px ; padding-bottom: 203px;" >
 <app-nav-bar></app-nav-bar> 
 
-<!-- modifico el about -->
-<!-- {{checkErrors()}} -->
-<br>
-<br>
-<body class="gradient-custom" >
-    
-    <section class="" >
+<!--si hay "loading" se va activar el gif -->
+    <div *ngIf="loading">
+        <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
+        <h3 style="text-align: center;">{{loading}} </h3>
+    </div> 
+
+{{checkErrors()}}
+
+    <section class="" *ngIf="!loading" style="margin-top: 80px ;" >
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -21,7 +22,7 @@
                     <!-- <p class="text-white-50 mb-5">Por favor, ingresar usuario y clave</p> -->
                     <br>
                     <br>
-                    <form  >
+                    <form (ngSubmit)="createExperience()"  >
                         <div class="form-outline form-white mb-4">
                             <input 
                             type="text" 
@@ -30,73 +31,80 @@
                             class="form-control form-control-lg"
                             style="font-size: 15px; "
                             placeholder="titulo:"
+                            [(ngModel)]="title"
                             />
-                            <label class="form-label" for="imagenLink" >Titulo del puesto</label>
-                            <!-- <p style="color: rgb(255, 0, 0) ; font-size: 15px;"> {{errores.title}} </p>  -->
+                            <label class="form-label" for="title" >Titulo del puesto</label>
+                            <p style="color: rgb(255, 0, 0) ; font-size: 15px;"> {{errores.title}} </p> 
                         </div>
                         
                         <div class="form-outline form-white mb-4">
                             <input 
                             type="text" 
-                            id="title"
-                            name="title" 
+                            id="companyName"
+                            name="companyName" 
                             class="form-control form-control-lg"
                             style="font-size: 15px; "
-                            placeholder="titulo:"
+                            placeholder="nombre..."
+                            [(ngModel)]="companyName"
                             />
-                            <label class="form-label" for="imagenLink" >Nombre de la empresa</label>
-                            <!-- <p style="color: red ; font-size: 14px;"> {{errores.summary}} </p>  -->
+                            <label class="form-label" for="companyName" >Nombre de la empresa</label>
+                            <p style="color: red ; font-size: 14px;"> {{errores.companyName}} </p> 
                         </div>
 
                         <div class="form-outline form-white mb-4">
                             <input 
                             type="date" 
-                            id="title"
-                            name="title" 
+                            id="dateStart"
+                            name="dateStart" 
                             class="form-control form-control-lg"
                             style="font-size: 15px; "
-                            placeholder="titulo:"
+                            [(ngModel)]="dateStart"
                             />
-                            <label class="form-label" for="imagenLink" >Fecha de inicio</label>
-                            <!-- <p style="color: red ; font-size: 14px;"> {{errores.summary}} </p>  -->
+                            <label class="form-label" for="dateStart" >Fecha de inicio</label>
+                            <p style="color: red ; font-size: 14px;"> {{errores.dateStart}} </p> 
                         </div>
 
                         <div class="form-outline form-white mb-4">
                             <input 
                             type="date" 
-                            id="title"
-                            name="title" 
+                            id="dateEnd"
+                            name="dateEnd" 
                             class="form-control form-control-lg"
                             style="font-size: 15px; "
-                            placeholder="titulo:"
+                            [(ngModel)]="dateEnd"
                             />
-                            <label class="form-label" for="imagenLink" >Fecha de fin</label>
+                            <label class="form-label" for="dateEnd" >Fecha de fin (opcional)</label>
                             <!-- <p style="color: red ; font-size: 14px;"> {{errores.summary}} </p>  -->
                         </div>
 
                         <div class="form-outline form-white mb-4">
                             <input 
                             type="text" 
-                            id="title"
-                            name="title" 
+                            id="logoCompany"
+                            name="logoCompany" 
                             class="form-control form-control-lg"
                             style="font-size: 15px; "
-                            placeholder="titulo:"
+                            placeholder="https://"
+                            [(ngModel)]="logoCompany"
                             />
-                            <label class="form-label" for="imagenLink" >Link logo de la empresa</label>
+                            <div style="margin-top: -32px; margin-left: 101%;">
+                                <button class="cssButton2" (click)="resetImagen()" type="button" >X</button><!--va ser un button para borra lo que hay en este input  -->
+                            </div>
+                            <label class="form-label" for="logoCompany" >Link logo de la empresa (opcional)</label>
                             <!-- <p style="color: red ; font-size: 14px;"> {{errores.summary}} </p>  -->
                         </div>
 
                         <div class="form-outline form-white mb-4">
                             <textarea
-                            id="summary" 
-                            name="summary"
+                            id="description" 
+                            name="description"
                             class="form-control form-control-lg"
                             style="height: 300px;"
+                            [(ngModel)]="description"
                             >
                             </textarea>
-                            <label class="form-label" for="imagenLink" >Descripcion sobre el puesto</label>
-                            <!-- <p style="color: red ; font-size: 14px;"> {{errores.summary}} </p>  -->
+                            <label class="form-label" for="description" >Descripcion sobre el puesto</label>
+                            <p style="color: red ; font-size: 14px;"> {{errores.description}} </p> 
                         </div>
                         
                         
