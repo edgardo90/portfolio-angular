@@ -7,6 +7,8 @@ import { EditPersonaComponent } from './components/persona/edit-persona/edit-per
 import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
 import { CreateExperienceComponent } from './components/experience/create-experience/create-experience.component';
 import { EditExperienceComponent } from './components/experience/edit-experience/edit-experience.component';
+import { CreateEducationComponent } from './components/education/create-education/create-education.component';
+import { EditEducationComponent } from './components/education/edit-education/edit-education.component';
 
 const routes: Routes = [
   {path:"" , component:HomeComponent},
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path:"about/edit/:id" , component:EditAboutComponent },
   {path:"experience/create" , component:CreateExperienceComponent},
   {path:"experience/edit/:id", component:EditExperienceComponent},
+  {path:"education/create", component:CreateEducationComponent },
+  {path:"education/edit/:id" , component:EditEducationComponent},
 ];
 
 @NgModule({

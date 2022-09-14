@@ -50,3 +50,10 @@
     </app-experience><!--Traigo mi experience.html -->
 </div>
 
+<div *ngIf="!loading">
+    <app-education
+    [activate]="activado"
+    >
+    </app-education>
+</div>
+

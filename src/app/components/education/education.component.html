@@ -1,0 +1,24 @@
+<div style="margin-top: 70px;">
+    <h1 style="margin-left: 40px;">Educación
+        <a routerLink="education/create" *ngIf="activate" >
+            <button class="buttonAgregar">Agregar experiencia</button>
+        </a>
+    </h1>
+    <br>
+    <div *ngFor="let edu of educations " class="container">
+        <img src= {{edu.institutionLogo}}  alt=""  class="logoImagen">
+        <h2 style="margin-left: 105px;">{{edu.institution}}</h2>
+        <h3 style="margin-left: 105px; font-size: 20px;">{{edu.titleName}}, {{edu.startDate}} - {{edu.endDate ? edu.endDate : "actualmente"}} </h3>
+        <div style="margin-top: 35px ; margin-left: -20px;" >
+            <a routerLink="/education/edit/{{edu.id}}">
+                <button class="cssButton1" *ngIf="activate"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
+            </a>
+            <button (click)="deletedEducation(edu)" class="cssButton2" type="button" *ngIf="activate"  >X</button>
+        </div>
+        <br>
+        <p style="margin-left: 105px; margin-top: -50px;">{{edu.description}}</p>
+        <br>
+        <!-- <br> -->
+        <a *ngIf="edu.certificateLink" href={{edu.certificateLink}} target="_blank"  style="color: black;" >Link del certificado: {{edu.certificateLink}}</a>
+    </div>
+</div>
