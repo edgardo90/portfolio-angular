@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   banner:Banner[]=[];
   persona:Persona[] = [];
   about:About[] = [];
-  loading: string = "" // esto me va servir para que aparezca el gif cargando... , si hay un string se va activar el gif caso contrarip el gif se va a descastivar
+  loading: string = "Cargando..." // esto me va servir para que aparezca el gif cargando... , si hay un string se va activar el gif caso contrarip el gif se va a descastivar
   activado: boolean = false // esto es un ejemplo de que mando el value de esta varible a persona.component y a otros componentes para mostrar los botones de editar y eleminar
 
   constructor( private bannerService: BannerService , private personaService:PersonaService , private aboutService:AboutService ) { }
