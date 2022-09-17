@@ -1,0 +1,153 @@
+.row{
+    background-color: #a1b5cb;
+    padding: 20px;
+}
+
+.circulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+    border: none; 
+    /* border-radius: 15px; */
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    display: inline-block; /*lo deja en fila tipo en bloke, en este caso fila de 3  */
+    margin: 3%;
+    /* padding: 1em; */
+    /* padding: 30px; */
+    /* padding-top: 30px; */
+    /* padding-bottom: 50px; */
+    /* padding-left: 30px; */
+    /* padding-right: 20px; */
+    vertical-align: top;
+    width: 33,5%; /* hace que la fila este ordenada  */
+    /* background-color: white; */
+    /* box-shadow: 2px 2px 2px 2px rgba(92, 112, 92, 0.753); */
+}
+
+
+
+.buttonAgregar{
+    padding: 8px; 
+    font-size: 18px ; 
+    margin-left: 10px ;
+    position: absolute; 
+    /* margin-top: 8px;  */
+    margin-top: 0.6%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(49, 174, 116, 0.893);
+    color: white;
+}
+.buttonAgregar:hover{
+    background-color: rgb(27, 166, 101);
+}
+/* .buttonAgregar:active{
+    transform: scale(0.8);
+} */
+
+
+.lapizCss{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: rgba(175, 198, 241, 0.838);
+}
+.lapizCss:hover{
+    background-color:rgba(77, 94, 191, 0.649) ;
+}
+
+.cssButton1{
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 8px;
+    margin-bottom: -100px;
+    border: none;
+    border-radius: 9px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 0px;
+    /* padding-top: 0px; */
+}
+.cssButton1:active{
+    transform: scale(0.8);
+}
+
+
+.cssButton2{
+    position: absolute; 
+    margin-left: 70px;
+    margin-top: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: none;
+  background-color: rgba(234, 91, 91, 0.944);
+  border-radius: 9999px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* padding-top: 4px; */
+  /* padding-bottom: 4px; */
+  font-size: 20px;
+}
+.cssButton2:active { /* cuando se toque va hacer una animacion de click  */
+    transform: scale(0.8); 
+}
+.cssButton2:hover{
+    background-color: red;
+    color: white;
+}
+
+.imagenGit1{
+    width: 470px;
+}
+
+.imagenGit2{
+    width: 400px;
+}
+
+@media screen and (max-width: 700px) {
+    .imagenGit1{
+        width:370px
+    }
+}
+@media screen and (max-width: 500px) {
+    .imagenGit1{
+        width:330px
+    }
+}
+@media screen and (max-width: 400px) {
+    .imagenGit1{
+        width:300px
+    }
+}
+
+
+
+@media screen and (max-width: 1100px) {
+    .imagenGit2{
+        margin-left: -20px ;
+    }
+}
+@media screen and (max-width: 700px) {
+    .imagenGit2{
+        width:330px;
+        margin-left: -20px ;
+    }
+}
+@media screen and (max-width: 500px) {
+    .imagenGit2{
+        width:330px;
+        margin-left: -20px ;
+    }
+}
+@media screen and (max-width: 400px) {
+    .imagenGit2{
+        width:300px;
+        margin-left: -20px ;
+    }
+}

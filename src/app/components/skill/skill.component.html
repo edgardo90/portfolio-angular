@@ -1,0 +1,79 @@
+<div   style="margin-top: 70px;">
+    <h1 style="margin-left: 40px;">Hard and Soft skills
+        <a routerLink="skill/creat" *ngIf="activate" >
+            <button class="buttonAgregar">Agregar experiencia</button>
+        </a>
+    </h1>
+
+    <div style="margin-left: 22% ; margin-right: 15%; margin-top: 15px;">
+        <!-- esto es un ejemplo  , despues tengo que traer mis skills del back , y como queda con los buttons -->
+        <!-- <div class="card">
+            <div style=" margin-left: 150px;" >
+                <a routerLink="">
+                    <button class="cssButton1" *ngIf="activate"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
+                </a>
+                <button  class="cssButton2" type="button" *ngIf="activate"  >X</button>
+            </div>
+            <circle-progress
+            [percent]="95" 
+            [radius]="90"
+            [title]="(msj)"
+            [showTitle]="false"
+            [imageSrc]="'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png'  "
+            [showImage]="true"
+            [imageHeight]="70"
+            [imageWidth]="70"
+            [showUnits]="false"
+            [showSubtitle]="false"
+            [outerStrokeWidth]="16"
+            [innerStrokeWidth]="2"
+            [outerStrokeColor]="'#78C000'"
+            [innerStrokeColor]="'#C7E596'"
+            [animation]="true"
+            [animationDuration]="600"
+            ></circle-progress>
+        </div> -->
+        
+        <div *ngFor="let ski of skills" class="card">
+            <div style=" margin-left: 150px;" >
+                <a routerLink="/skill/edit/{{ski.id}}">
+                    <button class="cssButton1" *ngIf="activate"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
+                </a>
+                <button (click)="deletedSkill(ski)"  class="cssButton2" type="button" *ngIf="activate"  >X</button>
+            </div>
+            <circle-progress
+            [percent]="(ski.percentage)" 
+            [radius]="90"
+            [title]="(ski.name)"
+            [titleColor]="(ski.colorName)"
+            [showTitle]="true"
+            [imageSrc]="'../assets/html.png'"
+            [showImage]="false"
+            [imageHeight]="70"
+            [imageWidth]="70"
+            [showUnits]="false"
+            [showSubtitle]="false"
+            [outerStrokeWidth]="16"
+            [innerStrokeWidth]="2"
+            [outerStrokeColor]="(ski.colorpercentage)"
+            [innerStrokeColor]="(ski.colorCircle)"
+            [animation]="true"
+            [animationDuration]="600"
+            ></circle-progress>
+        </div>
+    </div>
+    <!--aca abajo muestro estadisticas de github  -->
+    <div style="margin-left: 15%;">
+        <h1>Estadísticas de mi GitHub</h1>
+        <p >
+            <a href="https://github.com/anuraghazra/github-readme-stats" title="Go to Source" target="_blank">
+                <img class="imagenGit1"   src="https://github-readme-stats.vercel.app/api?username=edgardo90&show_icons=true&theme=tokyonight">
+            </a>
+            <a href="https://github.com/anuraghazra/github-readme-stats" style="margin-left: 20px;" target="_blank">
+                <img class="imagenGit2" src="https://github-readme-stats.vercel.app/api/top-langs/?username=edgardo90&hide=c%23,powershell,java&title_color=2aa889&text_color=99d1ce&icon_color=2bbc8a&bg_color=0c1014&langs_count=8&layout=compact" />
+            </a>
+        </p>
+    </div>
+
+</div>
+    
