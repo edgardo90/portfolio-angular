@@ -54,6 +54,13 @@
     <app-education
     [activate]="activado"
     >
-    </app-education>
+    </app-education> <!--Traigo mi education.html -->
+</div>
+
+<div *ngIf="!loading">
+    <app-skill
+    [activate]="activado"
+    >
+    </app-skill>
 </div>
 

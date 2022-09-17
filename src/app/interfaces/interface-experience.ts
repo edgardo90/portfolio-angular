@@ -17,5 +17,3 @@ export interface Errores{
     logoCompany?:string,
     description?:string,
 }
-
-export const ExperienceArray : Experience[] = [];

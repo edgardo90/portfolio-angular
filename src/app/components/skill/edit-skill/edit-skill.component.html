@@ -1,0 +1,125 @@
+<body class="gradient-custom" style="padding: 1px ; padding-bottom: 203px;" >
+    <app-nav-bar></app-nav-bar> 
+    
+    <!--si hay "loading" se va activar el gif -->
+        <div *ngIf="loading">
+            <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
+            <h3 style="text-align: center;">{{loading}} </h3>
+        </div> 
+    
+    {{checkErrors()}}
+    
+        <section class="" *ngIf="!loading" style="margin-top: 80px ;" >
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card  text-white" style="border-radius: 1rem; background-color: rgb(95, 93, 93)">
+                <div class="card-body p-5 text-center">
+                    
+                    <div class="mb-md-5 mt-md-4 pb-5">
+                        
+                        <h2 class="fw-bold mb-2 " >Editar skill </h2>
+                        <br>
+                        <!-- esto es un ejemplo  , de como va quedar-->
+                        <div class="card" style="margin-bottom: 10px;">
+                            <circle-progress
+                            [percent]="(percentage)" 
+                            [radius]="90"
+                            [title]="(name)"
+                            [showTitle]="true"
+                            [titleColor]="(colorName)"
+                            [imageSrc]="'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png'  "
+                            [showImage]="false"
+                            [imageHeight]="70"
+                            [imageWidth]="70"
+                            [showUnits]="false"
+                            [showSubtitle]="false"
+                            [outerStrokeWidth]="16"
+                            [innerStrokeWidth]="2"
+                            [outerStrokeColor]="(colorpercentage)"
+                            [innerStrokeColor]="(colorCircle)"
+                            [animation]="true"
+                            [animationDuration]="600"
+                            ></circle-progress>
+                        </div>
+                        <br>
+                        
+                        <form (submit)="modifySkill()"   >
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="text" 
+                                id="name"
+                                name="name" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                placeholder="Titulo:"
+                                [(ngModel)]="name"
+                                />
+                                <label class="form-label" for="name" >Ingresa  titulo del skill</label>
+                                <!-- <p style="color: rgb(255, 0, 0) ; font-size: 14px;"> {{errores.institution}} </p>  -->
+                            </div>
+                            
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="number" 
+                                id="percentage"
+                                name="percentage" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                [(ngModel)]="percentage"
+                                />
+                                <label class="form-label" for="percentage" >Ingrese el percentage</label>
+                                <!-- <p style="color: red ; font-size: 14px;"> {{errores.titleName}} </p>  -->
+                            </div>
+    
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="color" 
+                                id="colorTitle"
+                                name="colorTitle" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                [(ngModel)]="colorName"
+                                />
+                                <label class="form-label" for="colorTitle" >Color del titulo skill </label>
+                                <!-- <p style="color: red ; font-size: 14px;"> {{errores.startDate}} </p>  -->
+                            </div>
+    
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="color" 
+                                id="colorCircle1"
+                                name="colorCircle1" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                [(ngModel)] = "colorpercentage"
+                                />
+                                <label class="form-label" for="colorCircle1" >Color del porcentaje</label>
+                                <!-- <p style="color: red ; font-size: 14px;"> {{errores.summary}} </p>  -->
+                            </div>
+    
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="color" 
+                                id="colorCircle2"
+                                name="colorCircle2" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                [(ngModel)] = "colorCircle"
+                                />
+                                <label class="form-label" for="colorCircle2" >Color del circulo</label>
+                                <!-- <p style="color: red ; font-size: 14px;"> {{errores.institutionLogo}} </p>  -->
+                            </div>
+                            
+                            
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Enviar</button>
+                        </form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </body>

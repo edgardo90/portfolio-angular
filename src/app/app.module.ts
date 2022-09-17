@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from "@angular/common/http" // esto lo importo yo , es para que funcione el service
 import {FormsModule} from "@angular/forms" // esto lo importo yo , para los formularios
-
+import { NgCircleProgressModule } from 'ng-circle-progress';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,6 +20,9 @@ import { EditExperienceComponent } from './components/experience/edit-experience
 import { EducationComponent } from './components/education/education.component';
 import { CreateEducationComponent } from './components/education/create-education/create-education.component';
 import { EditEducationComponent } from './components/education/edit-education/edit-education.component';
+import { SkillComponent } from './components/skill/skill.component';
+import { CreateSkillComponent } from './components/skill/create-skill/create-skill.component';
+import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +41,17 @@ import { EditEducationComponent } from './components/education/edit-education/ed
     EditExperienceComponent,
     EducationComponent,
     CreateEducationComponent,
-    EditEducationComponent
+    EditEducationComponent,
+    SkillComponent,
+    CreateSkillComponent,
+    EditSkillComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule, // lo traigo aca
     FormsModule, // lo importo aca
     AppRoutingModule,
+    NgCircleProgressModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]
