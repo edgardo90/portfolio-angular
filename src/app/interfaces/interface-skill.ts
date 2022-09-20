@@ -11,5 +11,5 @@ export interface Skill{
 
 export interface Errores{
     name?:string,
-    percentage?:number;
+    percentage?:string;
 }

@@ -51,6 +51,19 @@ export class EditSkillComponent implements OnInit {
     // console.log(this.name)
     // console.log(this.percentage)
     // console.log(this.colorTitle)
+    const regex = /[A-Z0-9._%+-]+/i; // valida letras , numeros , simbolos , valida si no hay nada en el input
+    if(regex.test(this.name)){
+      this.errores.name = ""
+    }else{
+      this.errores.name = "Ingresa el titulo"
+    }
+
+    if(this.percentage <= 0 || this.percentage > 100 ){
+      this.errores.percentage = "tiene que ser mayor a 0 y menor que 100"
+    }else{
+      this.errores.percentage = ""
+    }
+
   }
 
   modifySkill(){
@@ -59,7 +72,7 @@ export class EditSkillComponent implements OnInit {
     this.skill = {name,percentage,colorName,colorCircle,colorpercentage,id};
     // console.log(this.skill);
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){
-      return alert("Observa los errores que estan en color rojo!");
+      alert("Observa los errores que estan en color rojo!");
     };
     this.skillService.putSkill(this.skill).subscribe(value=>{
       // console.log(value);

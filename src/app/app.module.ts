@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from "@angular/common/http" // esto lo importo yo , es para que funcione el service
 import {FormsModule} from "@angular/forms" // esto lo importo yo , para los formularios
-import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NgCircleProgressModule } from 'ng-circle-progress'; // esto lo instalo con npm install ng-circle-progress --save
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -51,7 +51,7 @@ import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.com
     HttpClientModule, // lo traigo aca
     FormsModule, // lo importo aca
     AppRoutingModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}) // el  circle-progress lo importo aca
   ],
   providers: [],
   bootstrap: [AppComponent]
