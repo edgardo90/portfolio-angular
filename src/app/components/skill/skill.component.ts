@@ -12,7 +12,7 @@ import {SkillService} from "../../service/skill.service";
 export class SkillComponent implements OnInit {
 
   @Input() activate!: boolean;
-  msj:string = "hola"; // esto es una prueba
+  // msj:string = "hola"; // esto es una prueba
   skills: Skill[] = []
 
   constructor(private skillService: SkillService ) { }

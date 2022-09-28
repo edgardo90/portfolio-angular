@@ -61,6 +61,13 @@
     <app-skill
     [activate]="activado"
     >
-    </app-skill>
+    </app-skill> <!--Traigo mi skill.html -->
+</div>
+
+<div *ngIf="!loading">
+    <app-project
+    [activate]="activado"
+    >
+    </app-project> <!--Traigo mi project.html -->
 </div>
 

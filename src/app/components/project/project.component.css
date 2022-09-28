@@ -1,0 +1,155 @@
+.lapiz{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: rgba(175, 198, 241, 0.838);
+}
+.lapiz:hover{
+    background-color:rgba(77, 94, 191, 0.649) ;
+}
+
+.cssButton{
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: -100px;
+    border: none;
+    border-radius: 9px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 0px;
+    /* padding-top: 0px; */
+}
+.cssButton:active{
+    transform: scale(0.8);
+}
+
+.cssButtonDeleted{
+    position: absolute; 
+    margin-left: 70px;
+    margin-top: 0px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: none;
+  background-color: rgba(234, 91, 91, 0.944);
+  border-radius: 9999px;
+  padding-left: 9px;
+  padding-right: 9px;
+  font-size: 18px;
+}
+.cssButtonDeleted:active { /* cuando se toque va hacer una animacion de click  */
+    transform: scale(0.8); 
+}
+.cssButtonDeleted:hover{
+    background-color: red;
+    color: white;
+}
+
+
+
+
+
+ngb-carousel {
+    max-width: 900px;
+    /* max-width: 70%; */
+    max-height: 520px;
+    margin: 50px auto;
+}
+ngb-carousel img {
+    width: 100%;
+    outline: none;
+    border-radius: 20px ;
+}
+ngb-carousel {
+    width: inherit;
+    height: inherit;
+}
+
+
+.carousel-indicators{
+    margin-bottom: 0px;
+    z-index: 20;
+    background-color: rgba(63, 113, 149, 0.389);
+    border-radius: 10px;
+}
+.carousel-indicators:hover{
+    background-color: rgba(63, 113, 149, 0.818);
+    transition:  0.5s; /*hace que se muestre un poco mas tarde  */
+}
+.carousel-control-next-icon{
+    background-color: rgb(13, 98, 244);
+}
+.carousel-control-prev-icon {
+    background-color: rgb(13, 98, 244);
+}
+
+
+
+
+
+
+
+
+.buttonAgregar{
+    padding: 8px; 
+    font-size: 18px ; 
+    margin-left: 10px ;
+    position: absolute; 
+    /* margin-top: 8px;  */
+    margin-top: 0.6%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(49, 174, 116, 0.893);
+    color: white; 
+}
+.buttonAgregar:hover{
+    background-color: rgb(27, 166, 101);
+}
+
+
+@media screen and (max-width: 1000px) {
+    ngb-carousel {
+        max-width: 600px;
+        max-height: 520px;
+        margin: 50px auto;
+    }
+    .carousel-indicators{
+        margin-bottom: 150px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    ngb-carousel {
+        max-width: 500px;
+        max-height: 400px;
+        margin: 50px auto;
+    }
+    .carousel-indicators{
+        margin-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    ngb-carousel {
+        max-width: 370px;
+        margin: 50px auto;
+    }
+    ngb-carousel img {
+        height: 300px;
+    }
+    .carousel-indicators{
+        margin-bottom: 70px;
+    }
+    .carousel-control-next-icon{
+        margin-top: 50px;
+    }
+    .carousel-control-prev-icon{
+        margin-top: 50px;
+    }
+    .carousel-control-prev{
+        height: 55%;
+        margin-top: 20%;
+      }
+}

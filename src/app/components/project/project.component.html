@@ -1,0 +1,43 @@
+<div   style="margin-top: 70px;">
+
+    <h1 style="margin-left: 40px;">Proyectos
+        <a routerLink="/project/create" *ngIf="activate" >
+            <button class="buttonAgregar">Agregar proyecto</button>
+        </a>
+    </h1>
+
+    <ngb-carousel *ngIf="projects.length > 0" style="margin-bottom: 200px ;"
+    [showNavigationIndicators]="true"
+    [animation]="true"
+    [keyboard]="true"
+    [interval]="12000"
+     >  
+        <ng-template ngbSlide *ngFor="let proj of projects; let i=index">
+            <div  style="margin-left: 72% ; margin-bottom: -3px;">
+                <a routerLink="/project/edit/{{proj.id}}">
+                    <button class="cssButton" *ngIf="activate" ><img class="lapiz" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
+                </a>
+                <button  class="cssButtonDeleted" type="button" *ngIf="activate" (click)="deletedProject(proj)" >X</button>
+            </div>
+            <h3 style="font-size: 21px;" >{{proj.title}}</h3>
+            <div class="picsum-img-wrapper">
+                <img [src]="(proj.image)" alt="Random third slide">
+            </div>
+            <div class="carousel-caption">
+                <!-- <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
+                </div>
+                <div>
+                    <p [outerHTML]="proj.description"></p> <!--con [innerText]= si se hace un espacio lo va a mostrar  -->
+                    <br>
+                    <a href="{{proj.linkFront}}" target="_blank" style="position:relative ; font-size: 15px;" *ngIf="proj.linkFront" >Link del repositorio Front-end GitHub</a>
+                    <br>
+                <a href="{{proj.linkBack}}" target="_blank" style="position:relative ; font-size: 15px;" *ngIf="proj.linkBack">Link del repositorio Back-end GitHub </a>
+                <br>
+                <a href="{{proj.linkProject}}" target="_blank" style="position:relative ;font-size: 15px;" *ngIf="proj.linkProject">Link deploy del projecto </a>
+            </div>
+        </ng-template>
+        
+    </ngb-carousel>
+
+</div>

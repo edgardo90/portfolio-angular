@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from "@angular/common/http" // esto lo importo yo , es para que funcione el service
 import {FormsModule} from "@angular/forms" // esto lo importo yo , para los formularios
 import { NgCircleProgressModule } from 'ng-circle-progress'; // esto lo instalo con npm install ng-circle-progress --save
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // esto se instala , leer https://ng-bootstrap.github.io/#/getting-started para instalar
+import { SwalComponent ,SweetAlert2Module ,SwalDirective } from '@sweetalert2/ngx-sweetalert2'; // esto se intala , es para mostrar de otrav forma las alertas , leer https://laratutorials.com/angular-12-sweetalert2-tutorial-example/
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,6 +25,9 @@ import { EditEducationComponent } from './components/education/edit-education/ed
 import { SkillComponent } from './components/skill/skill.component';
 import { CreateSkillComponent } from './components/skill/create-skill/create-skill.component';
 import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.component';
+import { ProjectComponent } from './components/project/project.component';
+import { CreateProjectComponent } from './components/project/create-project/create-project.component';
+import { EditProyejectComponent } from './components/project/edit-proyeject/edit-proyeject.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +49,19 @@ import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.com
     EditEducationComponent,
     SkillComponent,
     CreateSkillComponent,
-    EditSkillComponent
+    EditSkillComponent,
+    ProjectComponent,
+    CreateProjectComponent,
+    EditProyejectComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule, // lo traigo aca
     FormsModule, // lo importo aca
     AppRoutingModule,
-    NgCircleProgressModule.forRoot({}) // el  circle-progress lo importo aca
+    NgCircleProgressModule.forRoot({}), // el  circle-progress lo importo aca
+    SweetAlert2Module,//lo importo
+    NgbModule // lo importo
   ],
   providers: [],
   bootstrap: [AppComponent]
