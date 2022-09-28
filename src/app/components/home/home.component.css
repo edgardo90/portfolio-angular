@@ -7,6 +7,42 @@
     height: 40vh ;
 }
 
+.buttonAgregarBanner{
+    padding: 8px; 
+    font-size: 18px ; 
+    /* margin-left: 10px ; */
+    margin-left: 48% ;
+    position: absolute; 
+    /* margin-top: 8px;  */
+    margin-top: 0.6%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(49, 174, 116, 0.893);
+    color: white;
+    font-size: 18px;
+}
+.buttonAgregarBanner:hover{
+    background-color: rgb(27, 166, 101);
+}
+
+.buttonAgregar{
+    padding: 8px; 
+    font-size: 18px ; 
+    margin-left: 10px ;
+    position: absolute; 
+    /* margin-top: 8px;  */
+    margin-top: 0.6%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(49, 174, 116, 0.893);
+    color: white;
+    font-size: 15px;
+}
+.buttonAgregar:hover{
+    background-color: rgb(27, 166, 101);
+}
+
+
 @media screen and (max-width: 500px) {
     .imgLoading{
         width: 300px ;

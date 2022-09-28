@@ -16,7 +16,11 @@
     (onDeletedBanner)="deletedBannerFront(barr)"
     >
 </app-banner><!--Traigo mi app-banner.html -->
+<!-- si no hay banner va mostrar que no hay banner y la opcion de crear uno -->
 <h1 style="text-align: center ; font-size: 50px; margin-top: 100px;" *ngIf="banner.length === 0"> {{banner.length ===0 ? "No Hay banner para mostrar" : ""}}</h1>
+<a routerLink="" *ngIf="activado" >
+    <button class="buttonAgregarBanner" *ngIf="banner.length === 0" >Crear banner</button>
+</a>
 </div>
 
 <div *ngIf="!loading"> <!-- mando la variable "activado" a la variable "activate" del persona.component -->
@@ -27,7 +31,13 @@
     >
     <!-- (onDeletedPerson) es el Output() del persona.component , le paso la funcion "deletedPersonakBack(per)"  que cree en este componente  -->
 </app-persona><!--Traigo mi persona.html -->
-<h2 style="  margin-top: 100px;" *ngIf="persona.length === 0">"No Hay datos de la persona para mostrar" </h2>
+<!-- si no hay Persona va mostrar que no hay Persona y la opcion de crear uno -->
+<h2 style="  margin-top: 100px; font-size: 22px; " *ngIf="persona.length === 0">"No Hay datos de la persona para mostrar" 
+    <br>
+    <a routerLink="" *ngIf="activado" >
+        <button class="buttonAgregar">Crear persona</button>
+    </a>
+</h2>
 </div>
 
 
@@ -38,6 +48,12 @@
     (onDeletedAbout)="deletedAboutFront(ab)"
     >
     </app-about><!--Traigo mi about.html -->
+    <!-- si no hay About va mostrar que no hay About y la opcion de crear uno -->
+    <h3 style="  margin-top: 100px;" *ngIf="about.length === 0">"No hay resumen para mostrar" 
+        <a routerLink="" *ngIf="activado" >
+            <button class="buttonAgregar">Crear resumen</button>
+        </a>
+    </h3>
 </div>
 
 <br>
