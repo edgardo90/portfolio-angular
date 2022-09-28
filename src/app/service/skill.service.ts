@@ -14,7 +14,7 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 })
 export class SkillService {
 
-  private urlSkill = "http://localhost:8080/skill" // la ruta del back local de Experience
+  private urlSkill = "http://localhost:8080/skill" // la ruta del back local de skill
 
   constructor(private http:HttpClient) { }
 
