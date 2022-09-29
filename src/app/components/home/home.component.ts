@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { Router } from '@angular/router'; // esto seria como el navigate de react
 import {Banner} from "../../interfaces/interface-barr";
 import {BannerService} from "../../service/banner.service";
@@ -65,15 +66,36 @@ export class HomeComponent implements OnInit {
   }
 
   deletedBannerFront(bann: Banner){ // funcion para eleminar el banner
-    const option = window.confirm("Estas seguro de eleminar  ?"); // una alerta que si es "si" option va ser true sino va ser false
-    if(option){
-      this.bannerService.deletedBanner(bann).subscribe(() => {
-        this.banner = this.banner.filter(el => el.id !== bann.id);
-      },err =>{
-        console.log(err.error)
-      });
-      alert("eleminado con exito")
-    }
+    // console.log(bann);
+    Swal.fire({
+      title: 'Confirmar elminacion banner',
+      text: "¿Estás seguro que deseas eliminarlo?",
+      icon: 'warning',
+      showCancelButton: true, // muestro el button para cancel
+      reverseButtons: true, // cambio el sentido que va a mostrar los botones de "cancelar" y de "ok"
+      confirmButtonText: 'Si', // nombre del button ok
+      confirmButtonColor: "#04ec84", // cambia el color del button confirm
+      // color:"red",
+      cancelButtonText: "Cancelar" // name del button de cancel
+    }).then((result)=>{
+      if(result.value){
+        this.bannerService.deletedBanner(bann).subscribe(()=>{
+          this.banner = this.banner.filter(el => el.id !== bann.id );
+          return Swal.fire({
+            title:"Banner eleminado",
+            icon:"success",
+            confirmButtonText:"Continuar"
+          })
+        },err=>{
+          console.log(err.error);
+          return Swal.fire({
+            title: "Error",
+            text: "Ups hubo un error!",
+            icon:"error",
+          })
+        })
+      }
+    })
   }
 
   deletedAboutFront(about: About){ // funcion para eleminar el About

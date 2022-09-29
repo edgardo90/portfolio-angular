@@ -18,7 +18,7 @@
 </app-banner><!--Traigo mi app-banner.html -->
 <!-- si no hay banner va mostrar que no hay banner y la opcion de crear uno -->
 <h1 style="text-align: center ; font-size: 50px; margin-top: 100px;" *ngIf="banner.length === 0"> {{banner.length ===0 ? "No Hay banner para mostrar" : ""}}</h1>
-<a routerLink="" *ngIf="activado" >
+<a routerLink="/banner/create" *ngIf="activado" >
     <button class="buttonAgregarBanner" *ngIf="banner.length === 0" >Crear banner</button>
 </a>
 </div>

@@ -25,6 +25,10 @@ export class BannerService {
     return this.http.get<Banner[]>(`${this.urlBanner}/all`)
   }
 
+  postBanner(banner:Banner):Observable<Banner>{ // funcion para crear el banner
+    return this.http.post<Banner>(`${this.urlBanner}/create`, banner, httpOption );
+  }
+
   deletedBanner(banner:Banner):Observable<Banner>{ // funcion para eleminar el banner
     const urlPerosnaDeleted = `${this.urlBanner}/deleted/${banner.id}`;
     return this.http.delete<Banner>(urlPerosnaDeleted);

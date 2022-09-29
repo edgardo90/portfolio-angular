@@ -12,7 +12,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LogosComponent } from './components/logos/logos.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { PersonaComponent } from './components/persona/persona.component';
-import { CreateBannerComponent } from './components/create-banner/create-banner.component';
+import { CreateBannerComponent } from './components/edit-banner/create-banner.component';
 import { EditPersonaComponent } from './components/persona/edit-persona/edit-persona.component';
 import { AboutComponent } from './components/about/about.component';
 import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
@@ -28,6 +28,7 @@ import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.com
 import { ProjectComponent } from './components/project/project.component';
 import { CreateProjectComponent } from './components/project/create-project/create-project.component';
 import { EditProyejectComponent } from './components/project/edit-project/edit-project.component';
+import { NewBannerComponent } from './components/banner/new-banner/new-banner.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { EditProyejectComponent } from './components/project/edit-project/edit-p
     EditSkillComponent,
     ProjectComponent,
     CreateProjectComponent,
-    EditProyejectComponent
+    EditProyejectComponent,
+    NewBannerComponent
   ],
   imports: [
     BrowserModule,

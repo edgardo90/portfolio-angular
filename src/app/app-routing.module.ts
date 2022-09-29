@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //
 import { HomeComponent } from './components/home/home.component';
-import {CreateBannerComponent} from "./components/create-banner/create-banner.component"
+import {CreateBannerComponent} from "./components/edit-banner/create-banner.component"
 import { EditPersonaComponent } from './components/persona/edit-persona/edit-persona.component';
 import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
 import { CreateExperienceComponent } from './components/experience/create-experience/create-experience.component';
@@ -13,10 +13,12 @@ import { CreateSkillComponent } from './components/skill/create-skill/create-ski
 import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.component';
 import { CreateProjectComponent } from './components/project/create-project/create-project.component';
 import { EditProyejectComponent } from './components/project/edit-project/edit-project.component';
+import { NewBannerComponent } from './components/banner/new-banner/new-banner.component';
 
 const routes: Routes = [
   {path:"" , component:HomeComponent},
   // {path:"banner/create" , component:CreateBannerComponent},
+  {path:"banner/create" , component:NewBannerComponent },
   {path:"banner/edit/:id" , component:CreateBannerComponent},
   {path:"persona/edit/:id" , component:EditPersonaComponent },
   {path:"about/edit/:id" , component:EditAboutComponent },
