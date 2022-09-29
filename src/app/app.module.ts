@@ -27,7 +27,7 @@ import { CreateSkillComponent } from './components/skill/create-skill/create-ski
 import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.component';
 import { ProjectComponent } from './components/project/project.component';
 import { CreateProjectComponent } from './components/project/create-project/create-project.component';
-import { EditProyejectComponent } from './components/project/edit-proyeject/edit-proyeject.component';
+import { EditProyejectComponent } from './components/project/edit-project/edit-project.component';
 
 @NgModule({
   declarations: [

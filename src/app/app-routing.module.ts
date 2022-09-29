@@ -12,7 +12,7 @@ import { EditEducationComponent } from './components/education/edit-education/ed
 import { CreateSkillComponent } from './components/skill/create-skill/create-skill.component';
 import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.component';
 import { CreateProjectComponent } from './components/project/create-project/create-project.component';
-import { EditProyejectComponent } from './components/project/edit-proyeject/edit-proyeject.component';
+import { EditProyejectComponent } from './components/project/edit-project/edit-project.component';
 
 const routes: Routes = [
   {path:"" , component:HomeComponent},
