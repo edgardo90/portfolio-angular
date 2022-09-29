@@ -1,0 +1,128 @@
+<body style="background-color: rgb(143, 147, 195);padding: 1px ; padding-bottom: 310px;">
+    <app-nav-bar ></app-nav-bar> 
+    
+    <!--si hay "loading" se va activar el gif -->
+    <div *ngIf="loading">
+        <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
+        <h3 style="text-align: center;">{{loading}} </h3>
+    </div> 
+    
+    
+    {{chekErrores()}} <!--esto sirve para que funcione la funcion de controlar el formulario  -->
+    
+    
+    <!-- modifico la Persona -->
+    <br>
+    <br>
+        
+        <section class="vh-100 gradient-custom" *ngIf="!loading"  style="margin-bottom: 100px; margin-top: 20px;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-9 col-xl-7">
+                        <div class="card bg-primary text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                    
+                    <div class="mb-md-5 mt-md-4 pb-5">
+                        
+                        <h2 class="fw-bold mb-2 " >Crear informacion de la persona</h2>
+                        <!-- <p class="text-white-50 mb-5">Por favor, ingresar usuario y clave</p> -->
+                        <br>
+                        <br>
+                        <form (ngSubmit)="createPerson()"  >
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="text" 
+                                id="name"
+                                name="name" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                placeholder="Nombre:"
+                                [(ngModel)]="name"
+                                />
+                                <label class="form-label" for="imagenLink" >Ingrese nombre</label>
+                                <p style="color: rgb(255, 1, 1) ; font-size: 14px;"> {{errores.name ? errores.name : ""}} </p> 
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="text" 
+                                id="surname"
+                                name="surname" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                placeholder="Apellido:"
+                                [(ngModel)]="surname"
+                                />
+                                <label class="form-label" for="surname" >Ingrese apellido</label>
+                                <p style="color: rgb(255, 1, 1) ; font-size: 14px;"> {{errores.surname }} </p>
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="tel" 
+                                id="phone"
+                                name="phone" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                placeholder="Telefono:"
+                                [(ngModel)]="phone"
+                                />
+                                <label class="form-label" for="imagenLink" >Ingrese numero de telefono</label>
+                                <p style="color: red ; font-size: 14px;"> {{errores.phone}} </p> 
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="text" 
+                                id="email"
+                                name="email" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                placeholder="Email:"
+                                [(ngModel)]="email"
+                                />
+                                <label class="form-label" for="imagenLink" >Ingrese email</label>
+                                <p style="color: red ; font-size: 14px;"> {{errores.email}} </p> 
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="text" 
+                                id="country"
+                                name="country" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                placeholder="Pais:"
+                                [(ngModel)]="country"
+                                />
+                                <label class="form-label" for="imagenLink" >Ingrese pais de nacionalidad</label>
+                                <p style="color: red ; font-size: 14px;"> {{errores.country}} </p> 
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="text" 
+                                id="imagen"
+                                name="imagen" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                placeholder="Imagen:"
+                                [(ngModel)]="imagen"
+                                />
+                                <div style="margin-top: -32px; margin-left: 101%;">
+                                    <button class="cssButton2" (click)="resetImagen()" type="button" >X</button>
+                                </div>
+                                <label class="form-label" for="imagen" >Ingrese link de la imagen</label>
+                                <p style="color: red ; font-size: 14px;"> {{errores.imagen}} </p> 
+                            </div>
+                            
+                            <button class="btn   btn-outline-light btn-lg px-5" style="margin-bottom: -50px " type="submit">Enviar</button>
+                        </form>
+                    </div>
+                <div>
+                    <!-- <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+                    </p> -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </body>
