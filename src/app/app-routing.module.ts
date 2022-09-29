@@ -14,12 +14,13 @@ import { EditSkillComponent } from './components/skill/edit-skill/edit-skill.com
 import { CreateProjectComponent } from './components/project/create-project/create-project.component';
 import { EditProyejectComponent } from './components/project/edit-project/edit-project.component';
 import { NewBannerComponent } from './components/banner/new-banner/new-banner.component';
+import { CretePersonaComponent } from './components/persona/create-persona/create-persona.component';
 
 const routes: Routes = [
   {path:"" , component:HomeComponent},
-  // {path:"banner/create" , component:CreateBannerComponent},
   {path:"banner/create" , component:NewBannerComponent },
   {path:"banner/edit/:id" , component:CreateBannerComponent},
+  {path:"persona/create", component:CretePersonaComponent},
   {path:"persona/edit/:id" , component:EditPersonaComponent },
   {path:"about/edit/:id" , component:EditAboutComponent },
   {path:"experience/create" , component:CreateExperienceComponent},

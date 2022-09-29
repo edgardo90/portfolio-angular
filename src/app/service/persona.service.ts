@@ -22,6 +22,10 @@ export class PersonaService {
     return this.http.get<Persona[]>(`${this.urlPersona}/all`)
   }
 
+  postPersona(person:Persona):Observable<Persona>{ // funcion para crear la Persona
+    return this.http.post<Persona>(`${this.urlPersona}/create`, person, httpOption );
+  }
+
   deletedPerson(person:Persona):Observable<Persona>{ // funcion para eleminar la persona
     const urlPerosnaDeleted = `${this.urlPersona}/deleted/${person.id}`;
     return this.http.delete<Persona>(urlPerosnaDeleted)

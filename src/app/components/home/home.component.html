@@ -2,13 +2,14 @@
 [activate]="activado"
 (onChange)="cambio()"
 >
-</app-nav-bar> 
+</app-nav-bar> <!--Traigo mi app-navBar.html -->
 
 <div *ngIf="loading"><!--si hay "loading" se va activar el gif -->
     <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
     <h3 style="text-align: center;">{{loading}} </h3>
 </div>
 
+<!--Traigo mi app-banner.html -->
 <div *ngIf="!loading">
     <app-banner *ngFor="let barr of banner"
     [banner]="barr"
@@ -23,6 +24,7 @@
 </a>
 </div>
 
+<!--Traigo mi persona.html -->
 <div *ngIf="!loading"> <!-- mando la variable "activado" a la variable "activate" del persona.component -->
     <app-persona *ngFor="let per of persona"
     [person]="per"
@@ -34,7 +36,7 @@
 <!-- si no hay Persona va mostrar que no hay Persona y la opcion de crear uno -->
 <h2 style="  margin-top: 100px; font-size: 22px; " *ngIf="persona.length === 0">"No Hay datos de la persona para mostrar" 
     <br>
-    <a routerLink="" *ngIf="activado" >
+    <a routerLink="/persona/create" *ngIf="activado" >
         <button class="buttonAgregar">Crear persona</button>
     </a>
 </h2>
