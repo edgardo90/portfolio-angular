@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { ActivatedRoute, Router } from '@angular/router'; // con en ActivatedRoute puedo traer por parms el "id" que viene
 import{AboutService} from "../../../service/about.service";
 import {About ,Errores} from "../../../interfaces/interface-about"
@@ -20,11 +21,13 @@ export class EditAboutComponent implements OnInit {
 
   errores:Errores={};// esto sirve para controlar el formulario
 
+  aboutLoading:object[] = [] ;
+
 
   constructor(private router: Router, private activatedRouter : ActivatedRoute, private aboutService: AboutService) { }
 
   ngOnInit(): void {
-    setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
+    // setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
 
     const id = this.activatedRouter.snapshot.params["id"];
     // console.log(id);
@@ -35,6 +38,7 @@ export class EditAboutComponent implements OnInit {
       const{title ,summary} = this.about
       this.title = title;
       this.summary = summary;
+      this.aboutLoading.push(this.about);
     } , err=>{
       console.log(err.error);
       alert(err.error.msg);
@@ -61,18 +65,32 @@ export class EditAboutComponent implements OnInit {
     }
   }
 
-  modifyAbout():void{ // funcion para modificar el about
+  modifyAbout():any{ // funcion para modificar el about
     const id = this.activatedRouter.snapshot.params["id"];
     const {title ,summary} = this;
     this.about = {title , summary , id};
     // console.log(this.about);
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){ // convierto en array el objeto this.errores  y hago un filter para que me traiga solamente los elemento que hay algo
-      return alert("Observa los errores que estan en color rojo!")
+      return Swal.fire({
+        title: "Error",
+        text: "Observa los errores que estan en color rojo!" ,
+        icon:"error",
+      })
+      // return alert("Observa los errores que estan en color rojo!")
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+    })
     this.aboutService.putAbout(this.about).subscribe(value =>{ // utilizo el service que cree para modificar el about
       console.log(value);
-      alert("Se modifco la informacion acerca de ti");
       this.router.navigate([""]);
+      return Swal.fire({
+        title:"Informacion acerca de ti editado",
+        icon:"success",
+        confirmButtonText:"Continuar"
+      })
     }, err=>{
       console.log(err.error);
     })

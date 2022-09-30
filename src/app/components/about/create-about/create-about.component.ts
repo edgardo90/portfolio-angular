@@ -46,7 +46,7 @@ export class CreateAboutComponent implements OnInit {
     }
   }
 
-  createAbout(){ // funcion para crear el about
+  createAbout():any{ // funcion para crear el about
     const{title ,summary ,userName} = this; // traigo la variable que utilice en formulario
     this.about = {title , summary,userName}; // 
     // console.log(this.about);
@@ -56,8 +56,13 @@ export class CreateAboutComponent implements OnInit {
         text: "Observa los errores que estan en color rojo!" ,
         icon:"error",
       })
-      return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
+      // return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+    })
     this.aboutService.postAbout(this.about).subscribe(value=>{
       // console.log(value);
       this.router.navigate([""]);

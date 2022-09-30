@@ -120,17 +120,37 @@ export class HomeComponent implements OnInit {
   }
 
   deletedAboutFront(about: About){ // funcion para eleminar el About
-    const option = window.confirm("Estas seguro de eleminar  ?"); // una alerta que si es "si" option va ser true sino va ser false
-    if(option){
-      this.aboutService.deletedAbout(about).subscribe(() => {
-        this.about = this.about.filter(el => el.id !== about.id);
-      },err =>{
-        console.log(err.error)
-      });
-      alert("eleminado con exito")
-    }
+    // console.log(about);
+    Swal.fire({
+      title: 'Confirmar elminacion de tu About',
+      text: "¿Estás seguro que deseas eliminarlo?",
+      icon: 'warning',
+      showCancelButton: true, // muestro el button para cancel
+      reverseButtons: true, // cambio el sentido que va a mostrar los botones de "cancelar" y de "ok"
+      confirmButtonText: 'Si', // nombre del button ok
+      confirmButtonColor: "#04ec84", // cambia el color del button confirm
+      // color:"red",
+      cancelButtonText: "Cancelar" // name del button de cancel
+    }).then((result)=>{
+      if(result.value){
+        this.aboutService.deletedAbout(about).subscribe(()=>{
+          this.about = this.about.filter(el => el.id !== about.id );
+          return Swal.fire({
+            title:"About eleminado",
+            icon:"success",
+            confirmButtonText:"Continuar"
+          })
+        },err=>{
+          console.log(err.error);
+          return Swal.fire({
+            title: "Error",
+            text: "Ups hubo un error!",
+            icon:"error",
+          })
+        })
+      }
+    })
   }
-
 
 
   cambio(){ //funcion para cambiar el estado de la variable "activado"
@@ -141,5 +161,6 @@ export class HomeComponent implements OnInit {
     }
     console.log(this.activado)
   }
+  
 
 }

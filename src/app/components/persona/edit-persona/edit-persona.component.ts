@@ -36,7 +36,7 @@ export class EditPersonaComponent implements OnInit {
 
 
   ngOnInit(): void {
-    setTimeout(() => this.loading= ""  ,1600 ); // cuando pase ese tiempo setea a un string vacio 
+    // setTimeout(() => this.loading= ""  ,1600 ); // cuando pase ese tiempo setea a un string vacio 
 
     const id = this.activatedRouter.snapshot.params["id"]
     // console.log(id)
