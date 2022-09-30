@@ -93,7 +93,7 @@ export class CreateProjectComponent implements OnInit {
   }
 
 
-  createProject(){
+  createProject():any{
     this.project.description = this.project.description.split("\n").join("<br>")
     console.log(this.project)
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){ // convierto en array el objeto this.errores  y hago un filter para que me traiga solamente los elemento que hay algo
@@ -102,24 +102,30 @@ export class CreateProjectComponent implements OnInit {
         text: "Observa los errores que estan en color rojo!" ,
         icon:"error",
       })
-      return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
+      // return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+      showConfirmButton: false, // le saco el button de confirmar"ok"
+    })
     this.projectService.postProject(this.project).subscribe(value =>{
       // console.log(value);
       this.router.navigate([""]);
       return Swal.fire({
         title:"Proyecto creado",
         icon:"success",
-        confirmButtonText:"Continuar"
+        confirmButtonText:"Continuar",
       })
     }, err=>{
-      console.log(err.error)
+      console.log(err.error);
       return Swal.fire({
         title: "Error",
         text: err.error.msg,
         icon:"error",
-      })
-    })
+      });
+    });
   }
 
 

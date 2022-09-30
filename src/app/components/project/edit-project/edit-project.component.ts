@@ -22,18 +22,23 @@ export class EditProyejectComponent implements OnInit {
    linkProject:"", 
    userName:"edgardo90",  
   }
+  
+  projectLoading:object[] = []; // esto me va servir para el loading...
 
   errores:Errores={};// esto sirve para controlar el formulario
 
   constructor(private activatedRouter : ActivatedRoute,  private router: Router,  private projectService: ProjectService ) { }
 
   ngOnInit(): void {
-    setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
+    // setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
+    
     const id = this.activatedRouter.snapshot.params["id"];
     console.log(id);
+    
     this.projectService.getProjectByid(id).subscribe(value =>{
       console.log(value)
       this.project = value;
+      this.projectLoading.push(this.project);
     },err=>{
       console.log(err.error);
       Swal.fire({
@@ -42,7 +47,7 @@ export class EditProyejectComponent implements OnInit {
         icon:"error",
       })
       this.router.navigate([""]);
-    })
+    });
   }
 
   resetInput(value:any){ // funcion que voy a utilizar para un button para borrar lo que esta en el input
@@ -105,7 +110,7 @@ export class EditProyejectComponent implements OnInit {
     }
   }
 
-  editProject(){
+  editProject():any{
     this.project.description = this.project.description.split("\n").join("<br>")
     const id = this.activatedRouter.snapshot.params["id"];
     // console.log(this.project)
@@ -115,8 +120,14 @@ export class EditProyejectComponent implements OnInit {
         text: "Observa los errores que estan en color rojo!" ,
         icon:"error",
       })
-      return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
+      // return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+      showConfirmButton: false ,
+    });
     this.projectService.putProject(this.project).subscribe(value =>{
       // console.log(value);
       this.router.navigate([""]);
@@ -126,13 +137,14 @@ export class EditProyejectComponent implements OnInit {
         confirmButtonText:"Continuar"
       })
     }, err=>{
-      console.log(err.error)
+      console.log(err.error);
       return Swal.fire({
         title: "Error",
         text: err.error.msg,
         icon:"error",
-      })
-    })
+      });
+    });
   }
+  
 
 }

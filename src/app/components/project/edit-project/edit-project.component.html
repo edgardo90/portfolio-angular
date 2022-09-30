@@ -2,14 +2,14 @@
     <app-nav-bar></app-nav-bar> 
     
     <!--si hay "loading" se va activar el gif -->
-        <div *ngIf="loading">
+        <div *ngIf="projectLoading.length === 0">
             <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
             <h3 style="text-align: center;">{{loading}} </h3>
         </div> 
     
     {{checkErrors()}}
     
-        <section class="" *ngIf="!loading" style="margin-top: 80px ;" >
+        <section class="" *ngIf="projectLoading.length > 0" style="margin-top: 80px ;" >
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
