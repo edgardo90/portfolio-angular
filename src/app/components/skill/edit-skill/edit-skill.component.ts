@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { Router, ActivatedRoute } from '@angular/router'; // esto seria como el navigate de react
 import {Skill , Errores} from "../../../interfaces/interface-skill";
 import {SkillService} from "../../../service/skill.service";
@@ -22,12 +23,14 @@ export class EditSkillComponent implements OnInit {
 
   skill!:Skill;
 
+  skillLoading:object[] = []; // esto me va servir para el loading
+
   errores:Errores={};
 
   constructor(private activatedRouter : ActivatedRoute , private router: Router, private skillService: SkillService) { }
 
   ngOnInit(): void {
-    setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
+    // setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
     const id = this.activatedRouter.snapshot.params["id"];
     // console.log(id);
 
@@ -40,11 +43,16 @@ export class EditSkillComponent implements OnInit {
       this.colorpercentage = colorpercentage;
       this.colorCircle = colorCircle;
       // console.log(this.skill);
+      this.skillLoading.push(this.skill);
     }, err=>{
       console.log(err.error);
-      alert(err.error.msg);
+      Swal.fire({
+        title: "Error",
+        text: err.error.msg ,
+        icon:"error",
+      });
       this.router.navigate([""]);
-    })
+    });
   }
 
   checkErrors(){
@@ -66,22 +74,40 @@ export class EditSkillComponent implements OnInit {
 
   }
 
-  modifySkill(){
+  modifySkill():any{
     const id = this.activatedRouter.snapshot.params["id"];
     const {name , percentage , colorName , colorCircle , colorpercentage} = this;
     this.skill = {name,percentage,colorName,colorCircle,colorpercentage,id};
     // console.log(this.skill);
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){
-      alert("Observa los errores que estan en color rojo!");
-    };
+      return Swal.fire({
+        title: "Error",
+        text: "Observa los errores que estan en color rojo!" ,
+        icon:"error",
+      })
+    }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+      showConfirmButton: false ,
+    });
     this.skillService.putSkill(this.skill).subscribe(value=>{
       // console.log(value);
-      alert("Se modifico skill");
       this.router.navigate([""]);
+      return Swal.fire({
+        title:"Se modifico skill",
+        icon:"success",
+        confirmButtonText:"Continuar"
+      });
     }, err =>{
       console.log(err.error);
-      alert(err.error.msg)
-    })
+      return Swal.fire({
+        title: "Error",
+        text: err.error.msg,
+        icon:"error",
+      });
+    });
   }
 
 }
