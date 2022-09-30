@@ -50,6 +50,11 @@ export class NewBannerComponent implements OnInit {
       })
       return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+    })
     this.banerService.postBanner(this.banner).subscribe(value=>{
       // console.log(value);
       this.router.navigate([""]);

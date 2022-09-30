@@ -1,6 +1,7 @@
 //component para modificar el banner
 import { Component, OnInit } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { ActivatedRoute, Router } from '@angular/router'; // con en ActivatedRoute puedo traer por parms el "id" que viene
 import {BannerService } from "../../service/banner.service";
 import {Banner, Errores} from "../../interfaces/interface-barr";
@@ -11,6 +12,8 @@ import {Banner, Errores} from "../../interfaces/interface-barr";
   styleUrls: ['./create-banner.component.css']
 })
 export class CreateBannerComponent implements OnInit {
+
+  loading: string = "Cargando...";
   
   banner!:Banner;
   imagenLink:string = ""; // variable que voy a utilizar para el formulario
@@ -21,6 +24,8 @@ export class CreateBannerComponent implements OnInit {
   constructor(private router: Router, private activatedRouter : ActivatedRoute, private banerService:BannerService) { }
 
   ngOnInit(): void {
+    setTimeout(() => this.loading= ""  ,1800 ); // cuando pase ese tiempo setea a un string vacio
+
     const id = this.activatedRouter.snapshot.params['id']; // traigo el id que viene por parms y lo guardo en una variable
     // console.log(id)
 
@@ -52,17 +57,31 @@ export class CreateBannerComponent implements OnInit {
     this.imagenLink=""
   }
 
-  modifyBanner():void{ // funcion para modificar la imagen del banner
+  modifyBanner():any{ // funcion para modificar la imagen del banner
     const{imagenLink} = this; // traigo la variable que utilice en formulario
     this.banner.imagenLink = imagenLink; // el objeto "this.banner.imagenLink " va tener el valor el valor de "imagenLink"
     // console.log(this.banner);
     if(Object.values(this.errores).filter(el=>el !== "" ).length >0 ){
-      return alert("Observa los errores que estan en color rojo!")
+      return Swal.fire({
+        title: "Error",
+        text: "Observa los errores que estan en color rojo!" ,
+        icon:"error",
+      })
+      // return alert("Observa los errores que estan en color rojo!");
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+    })
     this.banerService.putBanner(this.banner).subscribe(value =>{ // utilizo el servicio para modificar el banner
       // console.log(value);
-      alert("se modifico el banner con exito");
       this.router.navigate([""]) // me redirijo al "home.html" si se modifico el banner
+      return Swal.fire({
+        title:"Banner editado",
+        icon:"success",
+        confirmButtonText:"Continuar"
+      })
     },err=>{
       console.log(err.error)
     })
