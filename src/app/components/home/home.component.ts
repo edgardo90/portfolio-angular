@@ -54,15 +54,36 @@ export class HomeComponent implements OnInit {
 
 
   deletedPersonakFront(persona:Persona){ // funcion para eleminar la persona
-    const option = window.confirm("Estas seguro de eleminar  ?"); // una alerta que si es "si" option va ser true sino va ser false
-    if(option){
-      this.personaService.deletedPerson(persona).subscribe(() => {
-        this.persona = this.persona.filter(el => el.id !== persona.id);
-      },err =>{
-        console.log(err.error)
-      });
-      alert("eleminado con exito")
-    }
+    // console.log(bann);
+    Swal.fire({
+      title: 'Confirmar elminacion de persona',
+      text: "¿Estás seguro que deseas eliminarlo?",
+      icon: 'warning',
+      showCancelButton: true, // muestro el button para cancel
+      reverseButtons: true, // cambio el sentido que va a mostrar los botones de "cancelar" y de "ok"
+      confirmButtonText: 'Si', // nombre del button ok
+      confirmButtonColor: "#04ec84", // cambia el color del button confirm
+      // color:"red",
+      cancelButtonText: "Cancelar" // name del button de cancel
+    }).then((result)=>{
+      if(result.value){
+        this.personaService.deletedPerson(persona).subscribe(()=>{
+          this.persona = this.persona.filter(el => el.id !== persona.id );
+          return Swal.fire({
+            title:"persona eleminado",
+            icon:"success",
+            confirmButtonText:"Continuar"
+          })
+        },err=>{
+          console.log(err.error);
+          return Swal.fire({
+            title: "Error",
+            text: "Ups hubo un error!",
+            icon:"error",
+          })
+        })
+      }
+    })
   }
 
   deletedBannerFront(bann: Banner){ // funcion para eleminar el banner

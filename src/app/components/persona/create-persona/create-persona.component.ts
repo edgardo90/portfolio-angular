@@ -93,7 +93,7 @@ export class CretePersonaComponent implements OnInit {
     this.imagen=""
   }
 
-  createPerson(){
+  createPerson():any{
     const {name , surname , imagen , phone , email , country , userName} = this ;
     this.person = {name , surname , imagen , phone , email, country , userName};
     // console.log(this.person);
@@ -103,8 +103,13 @@ export class CretePersonaComponent implements OnInit {
         text: "Observa los errores que estan en color rojo!" ,
         icon:"error",
       })
-      return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
+      // return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+    })
     this.personaService.postPersona(this.person).subscribe(value=>{
       // console.log(value);
       this.router.navigate([""]);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { ActivatedRoute, Router } from '@angular/router'; // con en ActivatedRoute puedo traer por parms el "id" que viene
 import {Persona , Errores} from "../../../interfaces/interface-persona";
 import {PersonaService} from "../../../service/persona.service"
@@ -24,6 +25,8 @@ export class EditPersonaComponent implements OnInit {
 
   errores:Errores={} // esto sirve para controlar el formulario
 
+  personLoading:object[] = [];
+
 
 
 
@@ -33,7 +36,7 @@ export class EditPersonaComponent implements OnInit {
 
 
   ngOnInit(): void {
-    setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio 
+    setTimeout(() => this.loading= ""  ,1600 ); // cuando pase ese tiempo setea a un string vacio 
 
     const id = this.activatedRouter.snapshot.params["id"]
     // console.log(id)
@@ -48,11 +51,13 @@ export class EditPersonaComponent implements OnInit {
       this.imagen = imagen ;
       this.email = email ;
       this.country = country
+      this.personLoading.push(this.person)
     }, err =>{
       console.log(err.error);
       alert(err.error.msg);
       this.router.navigate([""]);
     });
+    // console.log(this.personLoading)
   }
 
   chekErrores(){ // funcion para controlar y mostrar errores en el formulario
@@ -119,19 +124,31 @@ export class EditPersonaComponent implements OnInit {
   }
 
 
-  modifyPerson():void{
+  modifyPerson():any{
     const id = this.activatedRouter.snapshot.params["id"];
     const {name, surname, phone , imagen , email , country } = this;
     this.person = {name , surname , phone , imagen ,email , country, id};
     // console.log(this.person);
-    // console.log(Object.values(this.errores).filter(el => el !== "" ))
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){ // convierto en array el objeto this.errores  y hago un filter para que me traiga solamente los elemento que hay algo
-      return alert("Observa los errores que estan en color rojo!")
+      return Swal.fire({
+        title: "Error",
+        text: "Observa los errores que estan en color rojo!" ,
+        icon:"error",
+      })
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+    })
     this.personaService.putPersona(this.person).subscribe(value=>{
       console.log(value);
-      alert("se modifico el banner con exito")
       this.router.navigate([""]);
+      return Swal.fire({
+        title:"Persona editado",
+        icon:"success",
+        confirmButtonText:"Continuar"
+      })
     },err=>{
       console.log(err.error)
     })
