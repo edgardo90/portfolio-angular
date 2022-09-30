@@ -38,7 +38,7 @@ export class NewBannerComponent implements OnInit {
     this.imagenLink=""
   }
 
-  createBanner(){
+  createBanner():any{
     const{imagenLink , userName} = this; // traigo la variable que utilice en formulario
     this.banner = {imagenLink , userName}; // el objeto "this.banner.imagenLink " va tener el valor el valor de "imagenLink"
     // console.log(this.banner);
@@ -48,7 +48,7 @@ export class NewBannerComponent implements OnInit {
         text: "Observa los errores que estan en color rojo!" ,
         icon:"error",
       })
-      return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
+      // return alert("Observa los errores que estan en color rojo!"); // esto lo dejo para que funcione el Swal.fire con el return
     }
     Swal.fire({
       title: "Espere",
