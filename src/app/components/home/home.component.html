@@ -52,7 +52,7 @@
     </app-about><!--Traigo mi about.html -->
     <!-- si no hay About va mostrar que no hay About y la opcion de crear uno -->
     <h3 style="  margin-top: 100px;" *ngIf="about.length === 0">"No hay resumen para mostrar" 
-        <a routerLink="" *ngIf="activado" >
+        <a routerLink="/about/create" *ngIf="activado" >
             <button class="buttonAgregar">Crear resumen</button>
         </a>
     </h3>

@@ -30,6 +30,7 @@ import { CreateProjectComponent } from './components/project/create-project/crea
 import { EditProyejectComponent } from './components/project/edit-project/edit-project.component';
 import { NewBannerComponent } from './components/banner/new-banner/new-banner.component';
 import { CretePersonaComponent } from './components/persona/create-persona/create-persona.component';
+import { CreateAboutComponent } from './components/about/create-about/create-about.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CretePersonaComponent } from './components/persona/create-persona/creat
     CreateProjectComponent,
     EditProyejectComponent,
     NewBannerComponent,
-    CretePersonaComponent
+    CretePersonaComponent,
+    CreateAboutComponent
   ],
   imports: [
     BrowserModule,

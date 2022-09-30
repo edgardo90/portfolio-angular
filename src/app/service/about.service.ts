@@ -23,9 +23,13 @@ export class AboutService {
     return this.http.get<About[]>(`${this.urlAbout}/all`);
   }
 
-  deletedAbout(person:About):Observable<About>{ // funcion para eleminar el About
-    const urlPerosnaDeleted = `${this.urlAbout}/deleted/${person.id}`;
-    return this.http.delete<About>(urlPerosnaDeleted)
+  postAbout(about:About):Observable<About>{ // funcion para el post crear la About
+    return this.http.post<About>(`${this.urlAbout}/create`, about, httpOption );
+  }
+
+  deletedAbout(about:About):Observable<About>{ // funcion para eleminar el About
+    const urlAbautDeleted = `${this.urlAbout}/deleted/${about.id}`;
+    return this.http.delete<About>(urlAbautDeleted)
   }
 
   getAboutByid(id:string):Observable<About>{ // get para traer un About por su id

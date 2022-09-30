@@ -1,0 +1,78 @@
+<body class="gradient-custom" style="padding: 1px ; padding-bottom: 164px;" >
+    <app-nav-bar></app-nav-bar> 
+    
+    <!--si hay "loading" se va activar el gif -->
+    <div *ngIf="loading">
+        <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
+        <h3 style="text-align: center;">{{loading}} </h3>
+    </div> 
+    
+    <!-- modifico el about -->
+    {{checkErrors()}}
+    <br>
+    <br>
+        
+    
+    
+        <!--si se cumple el *ngIf="!loading"  va mostrar todo lo que hay en <section>   -->
+        <section class=""  *ngIf="!loading" style="margin-top: 80px ;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card  text-white" style="border-radius: 1rem; background-color: rgb(95, 93, 93)">
+                <div class="card-body p-5 text-center">
+                    
+                    <div class="mb-md-5 mt-md-4 pb-5">
+                        
+                        <h2 class="fw-bold mb-2 " >Editar acerca de ti</h2>
+                        <!-- <p class="text-white-50 mb-5">Por favor, ingresar usuario y clave</p> -->
+                        <br>
+                        <br>
+                        <form (ngSubmit)="createAbout()"  >
+                            <div class="form-outline form-white mb-4">
+                                <input 
+                                type="text" 
+                                id="title"
+                                name="title" 
+                                class="form-control form-control-lg"
+                                style="font-size: 15px; "
+                                placeholder="titulo:"
+                                [(ngModel)]="title"
+                                />
+                                <label class="form-label" for="imagenLink" >Titulo</label>
+                                <p style="color: rgb(255, 0, 0) ; font-size: 15px;"> {{errores.title}} </p> 
+                            </div>
+                            
+                            <div class="form-outline form-white mb-4">
+                                <textarea
+                                id="summary" 
+                                name="summary"
+                                class="form-control form-control-lg"
+                                style="height: 300px;"
+                                [(ngModel)]="summary"
+                                >
+                                </textarea>
+                                <br>
+                                <label class="form-label" for="imagenLink" >Resumen sobre ti</label>
+                                <p style="color: red ; font-size: 14px;"> {{errores.summary}} </p> 
+                            </div>
+                            
+                            
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Enviar</button>
+                        </form>
+                    </div>
+                
+                <div>
+                    <!-- <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+                    </p> -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </body>
+    
+    
