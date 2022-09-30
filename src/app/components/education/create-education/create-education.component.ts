@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { Router } from '@angular/router'; // esto seria como el navigate de react
 import {Education , Errores} from "../../../interfaces/interface-education";
 import {EducationService} from "../../../service/education.service";
@@ -82,16 +83,31 @@ export class CreateEducationComponent implements OnInit {
 
   }
 
-  createEducation(){
+  createEducation():any{
     const {institution , titleName , startDate , endDate  , description , institutionLogo, certificateLink , userName} = this;
     this.education = {institution , titleName , startDate , endDate  , description , institutionLogo, certificateLink , userName};
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){ // convierto en array el objeto this.errores  y hago un filter para que me traiga solamente los elemento que hay algo
-      return alert("Observa los errores que estan en color rojo!")
+      return Swal.fire({
+        title: "Error",
+        text: "Observa los errores que estan en color rojo!" ,
+        icon:"error",
+      })
+      // return alert("Observa los errores que estan en color rojo!")
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+      showConfirmButton: false, // le saco el button de confirmar"ok"
+    })
     this.educationService.postEducation(this.education).subscribe(value =>{
       console.log(value);
-      alert("Nueva experiencia creada")
       this.router.navigate([""]);
+      return Swal.fire({
+        title:"Nueva educacion creada",
+        icon:"success",
+        confirmButtonText:"Continuar"
+      })
     }, err=>{
       console.log(err.error)
     })

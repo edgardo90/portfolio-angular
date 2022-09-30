@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';//
+//
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { Router, ActivatedRoute } from '@angular/router'; // esto seria como el navigate de react
 import {Education , Errores} from "../../../interfaces/interface-education";
 import {EducationService} from "../../../service/education.service";
@@ -23,13 +25,15 @@ export class EditEducationComponent implements OnInit {
 
   education!:Education;
 
+  educationLoading:object[] = []; // esto me servar para el loading...
+
   errores:Errores={};// esto sirve para controlar el formulario
 
 
   constructor(private activatedRouter : ActivatedRoute , private router: Router , private educationService: EducationService) { }
 
   ngOnInit(): void {
-    setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
+    // setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio
     const id = this.activatedRouter.snapshot.params["id"];
     // console.log(id);
 
@@ -43,10 +47,15 @@ export class EditEducationComponent implements OnInit {
       this.description = description ;
       this.institutionLogo = institutionLogo ;
       this.certificateLink = certificateLink ;
-      console.log(this.education);
+      // console.log(this.education);
+      this.educationLoading.push(this.education);
     } , err =>{
       console.log(err.error);
-      alert(err.error.msg);
+      Swal.fire({
+        title: "Error",
+        text: err.error.msg ,
+        icon:"error",
+      });
       this.router.navigate([""]);
     })
   }
@@ -101,17 +110,31 @@ export class EditEducationComponent implements OnInit {
 
   }
 
-  modifyEducation(){
+  modifyEducation():any{
     const id = this.activatedRouter.snapshot.params["id"];
     const {institution, titleName , startDate , endDate , institutionLogo , description , certificateLink} = this;
     this.education = {institution , titleName ,startDate ,endDate , institutionLogo , description , certificateLink , id};
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){
-      return alert("Observa los errores que estan en color rojo!");
-    };
+      return Swal.fire({
+        title: "Error",
+        text: "Observa los errores que estan en color rojo!" ,
+        icon:"error",
+      });
+    }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+      showConfirmButton: false ,
+    });
     this.educationService.putEducation(this.education).subscribe(value =>{
       // console.log(value);
-      alert("Se modifico la educacion");
       this.router.navigate([""]);
+      return Swal.fire({
+        title:"Se modifico la educacion",
+        icon:"success",
+        confirmButtonText:"Continuar"
+      })
     }, err=>{
       console.log(err.error);
     })
