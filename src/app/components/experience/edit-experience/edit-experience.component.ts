@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { Router, ActivatedRoute } from '@angular/router'; // esto seria como el navigate de react
 import {Experience , Errores} from "../../../interfaces/interface-experience";
 import {ExperienceService } from "../../../service/experience.service";
@@ -23,19 +24,21 @@ export class EditExperienceComponent implements OnInit {
 
   exp!:Experience
 
+  experienceLoading:object[] =[]
+
   errores:Errores={};// esto sirve para controlar el formulario
 
   constructor(private experienceService: ExperienceService , private router: Router , private activatedRouter : ActivatedRoute) { }
 
   ngOnInit(): void {
-    setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio 
+    // setTimeout(() => this.loading= ""  ,600 ); // cuando pase ese tiempo setea a un string vacio 
 
     const id = this.activatedRouter.snapshot.params["id"];
     // console.log(id);
 
     this.experienceService.getExperienceByid(id).subscribe(value=>{
       this.exp = value;
-      console.log(this.exp)
+      // console.log(this.exp)
       const{title , companyName , dateStart , dateEnd , logoCompany , description} = this.exp
       this.title = title;
       this.companyName = companyName;
@@ -43,9 +46,14 @@ export class EditExperienceComponent implements OnInit {
       this.dateEnd = dateEnd;
       this.logoCompany = logoCompany;
       this.description = description;
+      this.experienceLoading.push(this.exp);
     } , err=>{
       console.log(err.error);
-      alert(err.error.msg);
+      Swal.fire({
+        title: "Error",
+        text: err.error.msg ,
+        icon:"error",
+      })
       this.router.navigate([""]);
     });
   }
@@ -86,18 +94,34 @@ export class EditExperienceComponent implements OnInit {
   }
 
 
-  modifyExperience():void{ // funcion para modificar el about
+  modifyExperience():any{ // funcion para modificar el about
     const id = this.activatedRouter.snapshot.params["id"];
     const {title , companyName , dateStart , dateEnd , logoCompany , description,} = this;
     this.exp = {title , companyName , dateStart , dateEnd , logoCompany , description, id};
     // console.log(this.exp);
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){ // convierto en array el objeto this.errores  y hago un filter para que me traiga solamente los elemento que hay algo
-      return alert("Observa los errores que estan en color rojo!")
+      return Swal.fire({
+        title: "Error",
+        text: "Observa los errores que estan en color rojo!" ,
+        icon:"error",
+      })
+      // return alert("Observa los errores que estan en color rojo!")
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+      showConfirmButton: false ,
+    })
     this.experienceService.putExperience(this.exp).subscribe(value =>{ // utilizo el service que cree para modificar el about
-      console.log(value);
-      alert("Se modifco la experiencia");
+      // console.log(value);
       this.router.navigate([""]);
+      return Swal.fire({
+        title:"Se modifco la experiencia",
+        icon:"success",
+        confirmButtonText:"Continuar"
+      })
+      // alert("Se modifco la experiencia");
     }, err=>{
       console.log(err.error);
     })

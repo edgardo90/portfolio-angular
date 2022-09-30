@@ -1,5 +1,6 @@
 import { Component, OnInit ,   Input , Output , EventEmitter  } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { Router } from '@angular/router'; // esto seria como el navigate de react
 import {Experience} from "../../interfaces/interface-experience";
 import {ExperienceService} from "../../service/experience.service";
@@ -42,17 +43,37 @@ export class ExperienceComponent implements OnInit {
     })
   }
 
-  deletedExperience(exp:Experience){ // funcion para eleminar una experiencia
+  deletedExperience(exp:Experience):any{ // funcion para eleminar una experiencia
     // console.log(exp);
-    const option = window.confirm("Estas seguro de eliminar ?");
-    if(option){
-      this.experienceService.deletedExperience(exp).subscribe(()=>{
-        this.exper = this.exper.filter(el => el.id !== exp.id)
-      }, err=>{
-        console.log(err.error)
-      });
-      alert("eleminado con exito")
-    }
+    Swal.fire({
+      title: 'Confirmar elminacion de experiencia',
+      text: "¿Estás seguro que deseas eliminarlo?",
+      icon: 'warning',
+      showCancelButton: true, // muestro el button para cancel
+      reverseButtons: true, // cambio el sentido que va a mostrar los botones de "cancelar" y de "ok"
+      confirmButtonText: 'Si', // nombre del button ok
+      confirmButtonColor: "#04ec84", // cambia el color del button confirm
+      // color:"red",
+      cancelButtonText: "Cancelar" // name del button de cancel
+    }).then((result)=>{
+      if(result.value){
+        this.experienceService.deletedExperience(exp).subscribe(()=>{
+          this.exper = this.exper.filter(el => el.id !== exp.id );
+          return Swal.fire({
+            title:"Experiencia eleminado",
+            icon:"success",
+            confirmButtonText:"Continuar"
+          })
+        },err=>{
+          console.log(err.error);
+          return Swal.fire({
+            title: "Error",
+            text: "Ups hubo un error!",
+            icon:"error",
+          })
+        })
+      }
+    })
   }
 
 

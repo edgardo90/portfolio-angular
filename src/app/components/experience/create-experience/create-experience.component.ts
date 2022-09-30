@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //
+import Swal from 'sweetalert2/dist/sweetalert2.js'; // importo sweetalert
 import { Router } from '@angular/router'; // esto seria como el navigate de react
 import {Experience , Errores} from "../../../interfaces/interface-experience";
 import {ExperienceService } from "../../../service/experience.service";
@@ -40,7 +41,7 @@ export class CreateExperienceComponent implements OnInit {
     const regex = /[A-Z0-9._%+-]+/i; // valida letras , numeros , simbolos , valida si no hay nada en el input
    if(!regex.test(this.title)){
       this.errores.title = "tienes que ingresar el titulo"
-    }else if(this.title.length > 45){
+    }else if(this.title.length > 80){
       this.errores.title= "titulo demaciado largo"
     }else{
       this.errores.title=""
@@ -66,16 +67,32 @@ export class CreateExperienceComponent implements OnInit {
 
   }
 
-  createExperience(){
+  createExperience():any{
     const { title , companyName ,dateStart , dateEnd , logoCompany , description , userName} = this;
     this.exp = {title, companyName, dateStart , dateEnd, logoCompany ,description, userName};
     if(Object.values(this.errores).filter(el => el !== "").length > 0 ){ // convierto en array el objeto this.errores  y hago un filter para que me traiga solamente los elemento que hay algo
-      return alert("Observa los errores que estan en color rojo!")
+      return Swal.fire({
+        title: "Error",
+        text: "Observa los errores que estan en color rojo!" ,
+        icon:"error",
+      })
+      // return alert("Observa los errores que estan en color rojo!")
     }
+    Swal.fire({
+      title: "Espere",
+      text: "Espere un momento por favor..." ,
+      icon:"info",
+      showConfirmButton: false, // le saco el button de confirmar"ok"
+    })
     this.experienceService.postExperience(this.exp).subscribe(value =>{
       console.log(value);
-      alert("Nueva experiencia creada")
       this.router.navigate([""]);
+      return Swal.fire({
+        title:"Experiencia creada",
+        icon:"success",
+        confirmButtonText:"Continuar"
+      })
+      // alert("Nueva experiencia creada");
     }, err=>{
       console.log(err.error)
     })
