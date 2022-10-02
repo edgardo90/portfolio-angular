@@ -1,0 +1,55 @@
+/* con esto hago una combinacion de colores en el body */
+
+.gradient-custom {
+    /* fallback for old browsers */
+    /* min-height: 50%;  */
+    /* min-height: 100%; */
+    /* min-width: 100%; */
+    background: #6a11cb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ , esto colores creo que va funcionar para firefox*/
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgb(143, 167, 208));
+    /* padding-bottom: 1500px; */
+    }
+
+    .imgLoading{
+        margin-top: 198px;
+        display:block; /*centro la imagen  */
+        margin-left: auto; /*centro la imagen  */
+        margin-right: auto; /*centro la imagen  */
+        cursor: progress; /*muestra la flechita del mouese que esta cargando  */
+        /* height: 40vh ; */
+        width: 400px;
+        height: 296px;
+        border-radius: 20px;
+    }
+
+    .cssButton2{
+        /* margin-top: -50px; */
+      border: none;
+      color: white;
+      cursor: pointer;
+      background: none;
+      background-color: rgba(240, 72, 72, 0.944);
+      border-radius: 9999px;
+      padding-left: 8px;
+      padding-right: 8px;
+      /* padding-top: 4px; */
+      /* padding-bottom: 4px; */
+    }
+    .cssButton2:active { /* cuando se toque va hacer una animacion de click  */
+        transform: scale(0.8); 
+    }
+    .cssButton2:hover{
+        background-color: red;
+        color: white;
+        text-align: center;
+      /* padding-left: 12px; */
+      /* padding-right: 12px; */
+      /* padding-top: 6px; */
+      /* padding-bottom: 6px; */
+      /* font-size: 18px; */
+    }

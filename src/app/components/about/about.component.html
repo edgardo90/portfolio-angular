@@ -1,7 +1,7 @@
 <div class="container" >
     <div >
         <h2>{{about.title}}
-            <a routerLink="about/edit/{{about.id}}">
+            <a routerLink="/about/edit/{{about.id}}">
                 <button class="cssButton1" *ngIf="activate" ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
             </a>
             <button class="cssButton2" type="button" *ngIf="activate" (click)="onDelete(about)">X</button>

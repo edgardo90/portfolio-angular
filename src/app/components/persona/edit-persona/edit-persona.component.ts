@@ -54,7 +54,11 @@ export class EditPersonaComponent implements OnInit {
       this.personLoading.push(this.person)
     }, err =>{
       console.log(err.error);
-      alert(err.error.msg);
+      Swal.fire({
+        title: "Error",
+        text: err.error.msg ,
+        icon:"error",
+      })
       this.router.navigate([""]);
     });
     // console.log(this.personLoading)
@@ -150,8 +154,13 @@ export class EditPersonaComponent implements OnInit {
         confirmButtonText:"Continuar"
       })
     },err=>{
-      console.log(err.error)
-    })
+      console.log(err.error);
+      return Swal.fire({
+        title: "Error",
+        text: err.error.msg,
+        icon:"error",
+      });
+    });
   }
 
 }

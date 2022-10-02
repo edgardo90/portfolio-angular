@@ -16,9 +16,11 @@ import { EditProyejectComponent } from './components/project/edit-project/edit-p
 import { NewBannerComponent } from './components/banner/new-banner/new-banner.component';
 import { CretePersonaComponent } from './components/persona/create-persona/create-persona.component';
 import { CreateAboutComponent } from './components/about/create-about/create-about.component';
+import { LoginComponent } from './components/login/login.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 const routes: Routes = [
-  {path:"" , component:HomeComponent},
+  {path:"home" , component:HomeComponent},
   {path:"banner/create" , component:NewBannerComponent },
   {path:"banner/edit/:id" , component:CreateBannerComponent},
   {path:"persona/create", component:CretePersonaComponent},
@@ -33,6 +35,9 @@ const routes: Routes = [
   {path:"skill/edit/:id" , component:EditSkillComponent},
   {path:"project/create", component:CreateProjectComponent },
   {path:"project/edit/:id" , component:EditProyejectComponent },
+  {path:"login" , component:LoginComponent },
+  {path:"create/user" , component:CreateUserComponent },
+  {path:"" , redirectTo:"/home" , pathMatch: "full"}, // si no hay nada me redige a la ruta login
 ];
 
 @NgModule({

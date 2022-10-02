@@ -31,6 +31,9 @@ import { EditProyejectComponent } from './components/project/edit-project/edit-p
 import { NewBannerComponent } from './components/banner/new-banner/new-banner.component';
 import { CretePersonaComponent } from './components/persona/create-persona/create-persona.component';
 import { CreateAboutComponent } from './components/about/create-about/create-about.component';
+import { interceptorProvider } from './service/interceptor-service';
+import { LoginComponent } from './components/login/login.component';
+import { CreateUserComponent } from './components/create-user/create-user.component'; // esto lo importo yo , para controlar el ADMIN or USER
 
 @NgModule({
   declarations: [
@@ -58,7 +61,9 @@ import { CreateAboutComponent } from './components/about/create-about/create-abo
     EditProyejectComponent,
     NewBannerComponent,
     CretePersonaComponent,
-    CreateAboutComponent
+    CreateAboutComponent,
+    LoginComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,7 @@ import { CreateAboutComponent } from './components/about/create-about/create-abo
     SweetAlert2Module,//lo importo
     NgbModule // lo importo
   ],
-  providers: [],
+  providers: [interceptorProvider],// el "interceptorProvider"  que importe y que cree lo coloco aca+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

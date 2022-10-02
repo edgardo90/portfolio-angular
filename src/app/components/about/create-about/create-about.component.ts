@@ -73,6 +73,11 @@ export class CreateAboutComponent implements OnInit {
       })
     }, err=>{
       console.log(err.error)
+      return Swal.fire({
+        title: "Error",
+        text: err.error.msg ,
+        icon:"error",
+      });
     })
   }
 
