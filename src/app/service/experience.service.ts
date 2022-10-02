@@ -14,7 +14,9 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 })
 export class ExperienceService {
 
-  private urlExperience = "http://localhost:8080/experience" // la ruta del back local de Experience
+  // private urlExperience = "http://localhost:8080/experience" // la ruta del back local de Experience
+  private urlExperience = "https://app-portfolio-java.herokuapp.com/experience"
+
 
   constructor(private http:HttpClient ) { }
 

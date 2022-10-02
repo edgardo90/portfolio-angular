@@ -17,8 +17,8 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 })
 export class BannerService {
 
-  private urlBanner ="http://localhost:8080/banner" // la ruta del back local del banner
-  // private urlBanner = "https://app-portfolio-java.herokuapp.com/banner" // ruta del back deploy
+  // private urlBanner ="http://localhost:8080/banner" // la ruta del back local del banner
+  private urlBanner = "https://app-portfolio-java.herokuapp.com/banner" // ruta del back deploy
 
   constructor(private http:HttpClient) { }
 

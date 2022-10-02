@@ -14,7 +14,8 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 })
 export class ProjectService {
 
-  private urlProject = "http://localhost:8080/project" // la ruta del back local de project
+  // private urlProject = "http://localhost:8080/project" // la ruta del back local de project
+  private urlProject = "https://app-portfolio-java.herokuapp.com/project"
 
   constructor(private http:HttpClient) { }
 
