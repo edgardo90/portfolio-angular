@@ -124,6 +124,11 @@ export class EditExperienceComponent implements OnInit {
       // alert("Se modifco la experiencia");
     }, err=>{
       console.log(err.error);
+      return Swal.fire({
+        title: "Error",
+        text: err.error.msg,
+        icon:"error",
+      });
     })
   }
 

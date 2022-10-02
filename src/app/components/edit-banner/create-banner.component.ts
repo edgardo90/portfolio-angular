@@ -36,7 +36,11 @@ export class CreateBannerComponent implements OnInit {
       // console.log(this.imagenLink);
     },err =>{
       console.log(err.error);
-      alert(err.error.msg);
+      Swal.fire({
+        title: "Error",
+        text: err.error.msg ,
+        icon:"error",
+      })
       this.router.navigate([""]); // si hay un error me va a redirigir al home.html
     });
 
@@ -84,6 +88,11 @@ export class CreateBannerComponent implements OnInit {
       })
     },err=>{
       console.log(err.error)
+      return Swal.fire({
+        title: "Error",
+        text: err.error.msg,
+        icon:"error",
+      });
     })
   }
 

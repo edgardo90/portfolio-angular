@@ -41,7 +41,11 @@ export class EditAboutComponent implements OnInit {
       this.aboutLoading.push(this.about);
     } , err=>{
       console.log(err.error);
-      alert(err.error.msg);
+      Swal.fire({
+        title: "Error",
+        text: err.error.msg ,
+        icon:"error",
+      });
       this.router.navigate([""]);
     });
   }

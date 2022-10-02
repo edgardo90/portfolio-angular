@@ -95,6 +95,11 @@ export class CreateExperienceComponent implements OnInit {
       // alert("Nueva experiencia creada");
     }, err=>{
       console.log(err.error)
+      return Swal.fire({
+        title: "Error",
+        text: err.error.msg,
+        icon:"error",
+      });
     })
   }
 

@@ -13,21 +13,29 @@
       </button>
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">App portafolio</h5>
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">App Portfolio</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button><!-- cierra el menu  -->
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="">Home</a>
+            <li class="nav-item" *ngIf="user.userName">
+              <h5>Bienvenido {{user.userName}}</h5>
+              <h5  style="font-size: 15px ;">Rol: {{user.authorities ? "Admintrador" : "Usuario" }}</h5>
+              <br>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Iniciar sesión</a>
+              <a class="nav-link " aria-current="page" href="" style="font-size: 20px ;">Home</a>
             </li>
-            <li>
-              <a class="nav-link" href="#">Crear Usuario </a>
+            <li class="nav-item" *ngIf="!isLogged">
+              <a class="nav-link" href="/login" >Iniciar sesión</a>
             </li>
-            <li *ngIf="!activate && !id && !link"> <!-- se va mostrar si no hay activate y no hay id  -->
+            <li *ngIf="!isLogged">
+              <a class="nav-link" href="create/user">Crear Usuario </a>
+            </li>
+            <!-- <li *ngIf="isLogged">
+              <a href="#" class="nav-link" (click)="logOut()">Salir de la sesion</a>
+            </li> -->
+            <li *ngIf="!activate && !id && link <= 1 && user.authorities"> <!-- se va mostrar si no hay activate y no hay id  -->
               <a href="#" class="nav-link" (click)="cambio()" data-bs-dismiss="offcanvas" aria-label="Close">Modificar portfolio</a>
             </li>
             <li *ngIf="activate"><!--  -->
@@ -50,6 +58,9 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                 
               </ul>
+            </li>
+            <li *ngIf="isLogged">
+              <a href="#" class="nav-link" (click)="logOut()" style="margin-top: 50px;">Salir de la sesion</a>
             </li>
           </ul>
           <!-- <form class="d-flex" role="search"> -->

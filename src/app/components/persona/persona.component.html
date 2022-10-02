@@ -4,7 +4,7 @@
     <!-- <br> -->
 
     <div class="divButton1" *ngIf="activate"><!-- si hay activate se van a mostrar los botones  -->
-        <a routerLink="persona/edit/{{person.id}}">
+        <a routerLink="/persona/edit/{{person.id}}">
             <button class="cssButton1"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
         </a>
         <button class="cssButton2" (click)="onDelete(person)">X</button> <!--con (clic) le paso funcion que cree en este componente  -->
