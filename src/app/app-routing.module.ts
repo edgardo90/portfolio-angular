@@ -18,6 +18,7 @@ import { CretePersonaComponent } from './components/persona/create-persona/creat
 import { CreateAboutComponent } from './components/about/create-about/create-about.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { Pagina404Component } from './components/pagina404/pagina404.component';
 
 const routes: Routes = [
   {path:"home" , component:HomeComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path:"login" , component:LoginComponent },
   {path:"create/user" , component:CreateUserComponent },
   {path:"" , redirectTo:"/home" , pathMatch: "full"}, // si no hay nada me redige a la ruta login
+  {path:"**" , component:Pagina404Component},
 ];
 
 @NgModule({

@@ -33,7 +33,8 @@ import { CretePersonaComponent } from './components/persona/create-persona/creat
 import { CreateAboutComponent } from './components/about/create-about/create-about.component';
 import { interceptorProvider } from './service/interceptor-service';
 import { LoginComponent } from './components/login/login.component';
-import { CreateUserComponent } from './components/create-user/create-user.component'; // esto lo importo yo , para controlar el ADMIN or USER
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { Pagina404Component } from './components/pagina404/pagina404.component'; // esto lo importo yo , para controlar el ADMIN or USER
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     CretePersonaComponent,
     CreateAboutComponent,
     LoginComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    Pagina404Component
   ],
   imports: [
     BrowserModule,

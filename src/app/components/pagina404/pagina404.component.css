@@ -1,0 +1,15 @@
+.buttonHome{
+    border: none;
+    border-radius: 13px;
+    font-size: 18px;
+    margin-left: 30%;
+    background-color: #1a4bad8f;
+    color: white;
+    padding: 10px;
+}
+.buttonHome:hover{
+    background-color: #1a4badf7;
+}
+.buttonHome:active{
+    transform: scale(0.8); 
+}
