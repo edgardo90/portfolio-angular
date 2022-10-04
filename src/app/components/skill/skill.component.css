@@ -65,7 +65,7 @@
 .cssButton1{
     position: absolute;
     margin-left: 25px;
-    margin-top: 8px;
+    margin-top: 1px;
     margin-bottom: -100px;
     border: none;
     border-radius: 9px;
@@ -82,7 +82,7 @@
 .cssButton2{
     position: absolute; 
     margin-left: 70px;
-    margin-top: 8px;
+    margin-top: 1px;
   border: none;
   color: white;
   cursor: pointer;
