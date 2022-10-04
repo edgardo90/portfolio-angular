@@ -5,7 +5,7 @@
         </a>
     </h1>
 
-    <div style="margin-left: 22% ; margin-right: 15%; margin-top: 15px;">
+    <div style="margin-left: 10% ; margin-right: 9%; margin-top: 15px;">
         <!-- esto es un ejemplo  , despues tengo que traer mis skills del back , y como queda con los buttons -->
         <!-- <div class="card">
             <div style=" margin-left: 150px;" >
@@ -35,7 +35,7 @@
         </div> -->
         
         <div *ngFor="let ski of skills" class="card">
-            <div style=" margin-left: 150px;" >
+            <div style=" margin-left: 105px;" >
                 <a routerLink="/skill/edit/{{ski.id}}">
                     <button class="cssButton1" *ngIf="activate"  ><img class="lapizCss" src="https://cdn-icons-png.flaticon.com/512/84/84383.png" alt="lapiz"></button>
                 </a>
@@ -43,18 +43,18 @@
             </div>
             <circle-progress
             [percent]="(ski.percentage)" 
-            [radius]="90"
+            [radius]="60"
             [title]="(ski.name)"
             [titleColor]="(ski.colorName)"
             [showTitle]="true"
-            [titleFontSize]="'17'"
+            [titleFontSize]="'13'"
             [imageSrc]="'../assets/html.png'"
             [showImage]="false"
             [imageHeight]="70"
             [imageWidth]="70"
             [showUnits]="false"
             [showSubtitle]="false"
-            [outerStrokeWidth]="16"
+            [outerStrokeWidth]="11"
             [innerStrokeWidth]="2"
             [outerStrokeColor]="(ski.colorpercentage)"
             [innerStrokeColor]="(ski.colorCircle)"
