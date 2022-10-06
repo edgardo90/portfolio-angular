@@ -4,13 +4,13 @@
 >
 </app-nav-bar> <!--Traigo mi app-navBar.html -->
 
-<div *ngIf="loading"><!--si hay "loading" se va activar el gif -->
+<div *ngIf="users.length === 0"><!--si hay "loading" se va activar el gif -->
     <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
     <h3 style="text-align: center;">{{loading}} </h3>
 </div>
 
 <!--Traigo mi app-banner.html -->
-<div *ngIf="!loading">
+<div *ngIf="users.length > 0">
     <app-banner *ngFor="let barr of banner"
     [banner]="barr"
     [activate]="activado"
@@ -25,7 +25,7 @@
 </div>
 
 <!--Traigo mi persona.html -->
-<div *ngIf="!loading"> <!-- mando la variable "activado" a la variable "activate" del persona.component -->
+<div *ngIf="users.length > 0"> <!-- mando la variable "activado" a la variable "activate" del persona.component -->
     <app-persona *ngFor="let per of persona"
     [person]="per"
     [activate]="activado"
@@ -43,7 +43,7 @@
 </div>
 
 
-<div *ngIf="!loading">
+<div *ngIf="users.length > 0">
     <app-about *ngFor="let ab of about"
     [about]="ab"
     [activate]="activado"
@@ -61,28 +61,28 @@
 <br>
 <br>
 
-<div *ngIf="!loading" >
+<div *ngIf="users.length > 0" >
     <app-experience
     [activate]="activado"
      >
     </app-experience><!--Traigo mi experience.html -->
 </div>
 
-<div *ngIf="!loading">
+<div *ngIf="users.length > 0">
     <app-education
     [activate]="activado"
     >
     </app-education> <!--Traigo mi education.html -->
 </div>
 
-<div *ngIf="!loading">
+<div *ngIf="users.length > 0">
     <app-skill
     [activate]="activado"
     >
     </app-skill> <!--Traigo mi skill.html -->
 </div>
 
-<div *ngIf="!loading">
+<div *ngIf="users.length > 0">
     <app-project
     [activate]="activado"
     >

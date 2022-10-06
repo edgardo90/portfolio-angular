@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient , HttpHandler, HttpHeaders} from "@angular/common/http"  // esto sirve para ser los get y post
 import { Observable ,of} from "rxjs"; // libreria que nos permite controlar el async , "observable"
-import {NewUser} from "../interfaces/interface-newUser" ;// esta es la interface que cree de nuevo usuario
+import {NewUser , User} from "../interfaces/interface-newUser" ;// esta es la interface que cree de nuevo usuario
 import {LoginUser} from "../interfaces/interface-login";//
 import {Jwt} from "../interfaces/interface-jwt";
 
@@ -30,6 +30,10 @@ export class AuthService {
 
   postLogin(loginUser:LoginUser):Observable<Jwt>{ // como va recibir un jwToken el Observable va lo que va a recibir
     return this.http.post<Jwt>(`${this.urlAuth}/login`, loginUser , httpOption );
+  }
+
+  getAllUsers():Observable<User[]>{
+    return this.http.get<User[]>(`${this.urlAuth}/user/all`);
   }
 
 
