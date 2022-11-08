@@ -24,16 +24,23 @@ export class HomeComponent implements OnInit {
   users:User[] = [] ; //array que va tener todos los usuarios
   loading: string = "Cargando..." // esto me va servir para que aparezca el gif cargando... , si hay un string se va activar el gif caso contrarip el gif se va a descastivar
   activado: boolean = false // esto es un ejemplo de que mando el value de esta varible a persona.component y a otros componentes para mostrar los botones de editar y eleminar
-
+  
   constructor( private bannerService: BannerService , 
     private personaService:PersonaService , 
     private aboutService:AboutService,
     private tokenService:TokenService,
     private authService: AuthService ,
     ) { }
-
-  ngOnInit(): void {
-    // console.log(this.tokenService.getUserName())
+    
+    ngOnInit(): void {
+      // console.log(this.tokenService.getUserName())
+      this.authService.getAllUsers().subscribe(value =>{ // servicio que va traer todos mis usuarios
+        this.users = value;
+        console.log(this.users);
+      },err =>{
+        console.log(err.error);
+      });
+      
     this.bannerService.getAllBanners().subscribe(value =>{ // llamo el service para traer todas los banners
       this.banner = value;
       this.banner = this.banner.filter(el => el.userName === "edgardo90") // va traer solamente el el.userName = "edgardo90"
@@ -57,14 +64,6 @@ export class HomeComponent implements OnInit {
     }, err=>{
       console.log(err.error);
     });
-
-    this.authService.getAllUsers().subscribe(value =>{ // servicio que va traer todos mis usuarios
-      this.users = value;
-      console.log(this.users);
-    },err =>{
-      console.log(err.error);
-    });
-
 
     // setTimeout(() => this.loading= ""  ,8000 ); // cuando pase ese tiempo setea a un string vacio 
   }
