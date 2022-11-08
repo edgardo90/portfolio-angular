@@ -15,14 +15,14 @@ import {ProjectService} from "../../service/project.service";
   .carousel-item
   {
     /* display:block; */  /*esto lo comento porque sino me tirra como un error por su id  */
-    opacity:0;
-    transition: opacity 0.5s;
+    /* opacity:0; */
+    /* transition: opacity 0.5s; */
   }
   .carousel-item.active
   {
     display:block;
-    opacity:1;
-    transition: opacity 0.5s;
+    /* opacity:1; */
+    /* transition: opacity 0.5s; */
     
   }
   .carousel-control-prev{
@@ -55,8 +55,7 @@ import {ProjectService} from "../../service/project.service";
 
 export class ProjectComponent implements OnInit {
 
-  @Input() activate!: boolean;        
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  @Input() activate!: boolean;       
   projects:Project[] = [];
   
   
@@ -67,7 +66,7 @@ export class ProjectComponent implements OnInit {
     this.projectService.getAllProjects().subscribe(value=>{
       this.projects = value;
       this.projects = this.projects.filter(el => el.userName === "edgardo90");
-      console.log(this.projects);
+      // console.log(this.projects);
     }, err =>{
       console.log(err.error)
     });

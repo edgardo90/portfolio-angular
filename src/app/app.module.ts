@@ -34,7 +34,9 @@ import { CreateAboutComponent } from './components/about/create-about/create-abo
 import { interceptorProvider } from './service/interceptor-service';
 import { LoginComponent } from './components/login/login.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
-import { Pagina404Component } from './components/pagina404/pagina404.component'; // esto lo importo yo , para controlar el ADMIN or USER
+import { Pagina404Component } from './components/pagina404/pagina404.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { CreateContactComponent } from './components/contact/create-contact/create-contact.component'; // esto lo importo yo , para controlar el ADMIN or USER
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { Pagina404Component } from './components/pagina404/pagina404.component';
     CreateAboutComponent,
     LoginComponent,
     CreateUserComponent,
-    Pagina404Component
+    Pagina404Component,
+    ContactComponent,
+    CreateContactComponent
   ],
   imports: [
     BrowserModule,

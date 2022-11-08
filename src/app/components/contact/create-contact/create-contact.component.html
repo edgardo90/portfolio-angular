@@ -1,0 +1,93 @@
+<app-nav-bar></app-nav-bar> 
+
+{{checkErrors()}}
+
+<div *ngIf="projects.length === 0">
+    <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
+    <h3 style="text-align: center;">Cargando... </h3>
+</div> 
+
+<div class="form" *ngIf="projects.length > 0">
+    <h1>Contacte conmigo</h1>
+    <form style="margin-top: 20px ; " (ngSubmit)="createContact()" >
+        <div class="form-outline form-white mb-4">
+            <input 
+            type="text" 
+            id="name"
+            name="name" 
+            class="form-control form-control-lg"
+            style="font-size: 15px; "
+            placeholder="Nombre:"
+            [(ngModel)] = contact.name
+            />
+            <label class="form-label" for="imagenLink" >Ingrese nombre y apellido</label>
+            <!-- <p style="color: rgb(255, 1, 1) ; font-size: 14px;"> {{errores.name ? errores.name : ""}} </p>  -->
+        </div>
+        <div class="form-outline form-white mb-4">
+            <input 
+            type="text" 
+            id="email"
+            name="email" 
+            class="form-control form-control-lg"
+            style="font-size: 15px; "
+            placeholder="Email:"
+            [(ngModel)] = "contact.email"
+            />
+            <label class="form-label" for="surname" >Ingrese email</label>
+            <!-- <p style="color: rgb(255, 1, 1) ; font-size: 14px;"> {{errores.surname }} </p> -->
+        </div>
+        <div class="form-outline form-white mb-4">
+            <input 
+            type="tel" 
+            id="phone"
+            name="phone" 
+            class="form-control form-control-lg"
+            style="font-size: 15px; "
+            placeholder="Telefono:"
+            [(ngModel)] = "contact.phone"
+            />
+            <label class="form-label" for="imagenLink" >Ingrese numero de telefono</label>
+            <!-- <p style="color: red ; font-size: 14px;"> {{errores.phone}} </p>  -->
+        </div>
+        <div class="form-outline form-white mb-4">
+            <textarea
+            id="project.description" 
+            name="project.description"
+            class="form-control form-control-lg"
+            style="height: 300px; width: 400px; ; ;font-size: 16px ;"
+            [(ngModel)] = "contact.message"
+            >
+            </textarea>
+            <label class="form-label" for="project.description" >Descripcion sobre el proyecto</label>
+            <!-- <p style="color: red ; font-size: 14px;"> {{errores.description}} </p>  -->
+        </div>
+        
+        <button style="margin-bottom: 50px;" type="submit">Enviar</button>
+    </form>
+</div>
+
+<div   style="margin-top: 850px; margin-left: 50px; position: absolute;">
+    <h1 *ngIf="projects.length  > 0" style="position: absolute;margin-top: -700px ; ">Comuníquese conmigo</h1>
+    <br>
+    <ngb-carousel *ngIf="projects.length > 0"
+        [animation]="true"
+        [keyboard]="true"
+        [interval]="12000"
+        >  
+        <ng-template ngbSlide *ngFor="let proj of projects">
+            <div class="picsum-img-wrapper">
+                <img [src]="(proj.image)" alt="Random third slide" >
+            </div>
+            <!-- <div class="carousel-caption">
+                <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div> -->
+        </ng-template>
+    </ngb-carousel>
+    <br>
+    <p style="max-height: 520px; max-width: 600px;" *ngIf="projects.length > 0" >
+        Si quieres contactar conmigo, puedes hacerlo a través del formulario de contacto,
+        te responderé lo más rápido posible.
+    </p>
+    <!-- <h3 style="text-align: center ; margin-top:50px ;margin-bottom: 50px; "  *ngIf="projects.length === 0">"No hay proyectos para mostrar" </h3> -->
+</div>
