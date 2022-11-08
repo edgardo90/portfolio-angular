@@ -2,15 +2,17 @@
 
 {{checkErrors()}}
 
-<div *ngIf="projects.length === 0">
+<div *ngIf="projects.length === 0" style="margin-top: 0px; margin-left: 30px; position: absolute;">
+    <!-- <h1 style="position: absolute;margin-top: 100px ; font-size: 25px;">Comuníquese conmigo</h1> -->
     <img class="imgLoading" src="https://hemalcorporation.com/wp-content/uploads/2020/02/web.gif" alt="">
     <h3 style="text-align: center;">Cargando... </h3>
 </div> 
 
-<div class="form" *ngIf="projects.length > 0">
+<div class="form" >
     <h1>Contacte conmigo</h1>
     <form style="margin-top: 20px ; " (ngSubmit)="createContact()" >
         <div class="form-outline form-white mb-4">
+            <label class="form-label" for="imagenLink" >Ingrese nombre y apellido</label>
             <input 
             type="text" 
             id="name"
@@ -20,9 +22,9 @@
             placeholder="Nombre:"
             [(ngModel)] = contact.name
             />
-            <label class="form-label" for="imagenLink" >Ingrese nombre y apellido</label>
             <!-- <p style="color: rgb(255, 1, 1) ; font-size: 14px;"> {{errores.name ? errores.name : ""}} </p>  -->
         </div>
+        <label class="form-label" for="surname" >Ingrese email</label>
         <div class="form-outline form-white mb-4">
             <input 
             type="text" 
@@ -33,10 +35,10 @@
             placeholder="Email:"
             [(ngModel)] = "contact.email"
             />
-            <label class="form-label" for="surname" >Ingrese email</label>
             <!-- <p style="color: rgb(255, 1, 1) ; font-size: 14px;"> {{errores.surname }} </p> -->
         </div>
         <div class="form-outline form-white mb-4">
+            <label class="form-label" for="imagenLink" >Ingrese numero de telefono</label>
             <input 
             type="tel" 
             id="phone"
@@ -46,10 +48,10 @@
             placeholder="Telefono:"
             [(ngModel)] = "contact.phone"
             />
-            <label class="form-label" for="imagenLink" >Ingrese numero de telefono</label>
             <!-- <p style="color: red ; font-size: 14px;"> {{errores.phone}} </p>  -->
         </div>
         <div class="form-outline form-white mb-4">
+            <label class="form-label" for="project.description" >Descripcion sobre el proyecto</label>
             <textarea
             id="project.description" 
             name="project.description"
@@ -58,16 +60,18 @@
             [(ngModel)] = "contact.message"
             >
             </textarea>
-            <label class="form-label" for="project.description" >Descripcion sobre el proyecto</label>
             <!-- <p style="color: red ; font-size: 14px;"> {{errores.description}} </p>  -->
         </div>
         
-        <button style="margin-bottom: 50px;" type="submit">Enviar</button>
+        <button style="margin-bottom: 50px;" class="button" type="submit">Enviar</button>
     </form>
 </div>
 
-<div   style="margin-top: 850px; margin-left: 50px; position: absolute;">
-    <h1 *ngIf="projects.length  > 0" style="position: absolute;margin-top: -700px ; ">Comuníquese conmigo</h1>
+
+<div *ngIf="projects.length  > 0"  style="margin-top: 850px; margin-left: 30px; position: absolute;">
+    <h1 style="position: absolute;margin-top: -700px ; ">Comuníquese conmigo</h1>
+
+
     <br>
     <ngb-carousel *ngIf="projects.length > 0"
         [animation]="true"

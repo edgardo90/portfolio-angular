@@ -54,6 +54,20 @@ ngb-carousel {
     
 }
 
+.button{
+    margin-left: 50px;
+    text-align: center;
+    width: 300px;
+    background-color: rgba(23, 172, 222, 0.729);
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+.button:hover{
+    background-color: rgb(23, 172, 222);
+}
+
 @media screen and (max-width: 1100px) {
     .form{
         /* position:absolute; */
@@ -62,6 +76,8 @@ ngb-carousel {
         margin-top: 670px;
     }
 }
+
+
 
 @media screen and (max-width: 500px) {
     .form{
