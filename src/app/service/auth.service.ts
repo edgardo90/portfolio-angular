@@ -20,7 +20,7 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 export class AuthService {
 
   // private urlAuth = "http://localhost:8080/auth" // la ruta del back local para el auth
-  private urlAuth = "https://app-portfolio-java.herokuapp.com/auth" // la ruta del back local para el auth
+  private urlAuth = "https://optimistic-hermine-edgardo90.koyeb.app/auth" // la ruta del back local para el auth
 
   constructor(private http:HttpClient) { } // traigo aca el HttpClient que importe y la denomino "http"
 
