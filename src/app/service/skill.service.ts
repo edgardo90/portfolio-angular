@@ -15,7 +15,7 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 export class SkillService {
 
   // private urlSkill = "http://localhost:8080/skill" // la ruta del back local de skill
-  private urlSkill = "https://app-portfolio-java.herokuapp.com/skill" 
+  private urlSkill = "https://optimistic-hermine-edgardo90.koyeb.app/skill" 
 
   constructor(private http:HttpClient) { }
 

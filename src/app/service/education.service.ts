@@ -16,7 +16,7 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 export class EducationService {
 
   // private urlEducation = "http://localhost:8080/education" // la ruta del back local de Education
-  private urlEducation = "https://app-portfolio-java.herokuapp.com/education" 
+  private urlEducation = "https://optimistic-hermine-edgardo90.koyeb.app/education" 
 
   constructor( private http:HttpClient) { }
 
