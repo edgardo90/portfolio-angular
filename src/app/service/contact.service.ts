@@ -14,7 +14,7 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
   providedIn: 'root'
 })
 export class ContactService {
-  private contactUrl = "https://ong-app-node.herokuapp.com/contacts/portfolio"; // ruta que sirve para enviar por email automatico 
+  private contactUrl = "https://quixotic-ong-edgardo90.koyeb.app/contacts/portfolio"; // ruta que sirve para enviar por email automatico 
 
   constructor(private http:HttpClient) { }
 
