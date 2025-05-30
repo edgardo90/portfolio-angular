@@ -15,7 +15,7 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 export class ProjectService {
 
   // private urlProject = "http://localhost:8080/project" // la ruta del back local de project
-  private urlProject = "https://back-portofolio-java-v10-production.up.railway.app/project"
+  private urlProject = "https://back-portofolio-java-v1-0.onrender.com/project"
 
   constructor(private http:HttpClient) { }
 
