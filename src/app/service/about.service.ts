@@ -16,7 +16,7 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 export class AboutService {
 
   // private urlAbout = "http://localhost:8080/about" // la ruta del back local de About
-  private urlAbout = "http://back-portfolio-env-1.eba-mvhc4apm.us-east-1.elasticbeanstalk.com/about" // ruta del back deploy
+  private urlAbout = "https://back-portofolio-java-v1-0.onrender.com/about" // ruta del back deploy
 
   constructor(private http:HttpClient ) { }
 
