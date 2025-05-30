@@ -15,7 +15,7 @@ const httpOption = { // esto es para decir que envio un json a la aplicacion , "
 export class ExperienceService {
 
   // private urlExperience = "http://localhost:8080/experience" // la ruta del back local de Experience
-  private urlExperience = "https://back-portofolio-java-v10-production.up.railway.app/experience"
+  private urlExperience = "https://back-portofolio-java-v1-0.onrender.com/experience"
 
 
   constructor(private http:HttpClient ) { }
